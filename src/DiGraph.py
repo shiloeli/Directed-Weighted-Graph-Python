@@ -107,6 +107,9 @@ class DiGraph(GraphInterface, ABC):
         str_graph += "],\"Nodes\":["
         for k in self.vertices.keys():
             pos = self.vertices.get(k).getLocation()
+            if pos is None:
+                pos = (0, 0, 0)
+            print(pos)
             str_graph += "{" + f"\"pos\":\"{pos[0]},{pos[1]},{pos[2]}\",\"id\":{k}" + "}" + ","
 
         if str_graph[-1] == ',':
@@ -118,4 +121,5 @@ class DiGraph(GraphInterface, ABC):
 if __name__ == '__main__':
     g = DiGraph()
     g.add_node(1)
-    print(g.getNode(1))
+    pos = g.vertices.get(1).getLocation()
+    print(pos)

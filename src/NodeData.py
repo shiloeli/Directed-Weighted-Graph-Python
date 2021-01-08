@@ -42,5 +42,5 @@ class NodeData:
         if self.location is None:
             self.location = (0, 0, 0)
 
-        return f"(key: {self.key} , info: {self.info} , tag: {self.tag}, location: {self.location} , weight:  " \
+        return f"(key: {self.key} , info: {self.info} , tag: {self.tag}, pos: {self.location} , weight:  " \
                f"{self.weight} )"
