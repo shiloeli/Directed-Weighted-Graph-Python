@@ -1,4 +1,4 @@
-from Ex3.src.NodeData import NodeData
+from src.NodeData import NodeData
 
 
 class PriorityQueue(NodeData):

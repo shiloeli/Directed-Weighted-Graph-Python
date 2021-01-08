@@ -1,18 +1,15 @@
 import json
 from builtins import list
 from typing import List
-from Ex3.src import GraphInterface
-from Ex3.src.GraphAlgoInterface import GraphAlgoInterface
-from Ex3.src.DiGraph import DiGraph
-from Ex3.src.PlotGraph import PlotGraph
-from Ex3.src.PriorityQueue import PriorityQueue
+from src import GraphInterface
+from src.GraphAlgoInterface import GraphAlgoInterface
+from src.DiGraph import DiGraph
+from src.PlotGraph import PlotGraph
+from src.PriorityQueue import PriorityQueue
 import math
 
 
 class GraphAlgo(GraphAlgoInterface):
-
-    # def __init__(self, g: DiGraph()):
-    #     self.graph = g
 
     def __init__(self, graph: GraphInterface = None):
         self.graph = graph
@@ -84,12 +81,15 @@ class GraphAlgo(GraphAlgoInterface):
         neiOut = []
         allNode = [self.graph.getNode(id1)]
         neiOut.append(self.graph.getNode(id1))
+
         for n in self.graph.get_all_v().keys():
             temp = self.graph.vertices.get(n)
             temp.setTag(-1)
-        while len(allNode) != 0:
+
+        while len(allNode) > 0:
             prev = allNode.pop()
             prev.setTag(0)
+
             for nOut in self.graph.neighborsOut.get(prev.getKey()).keys():
                 temp1 = self.graph.vertices.get(nOut)
                 if temp1.getTag() != 0:
@@ -102,6 +102,7 @@ class GraphAlgo(GraphAlgoInterface):
             temp.setTag(-1)
         allNode.append(self.graph.getNode(id1))
         neiIn.append(self.graph.getNode(id1))
+
         while len(allNode) != 0:
             prev = allNode.pop()
             prev.setTag(0)
@@ -122,15 +123,18 @@ class GraphAlgo(GraphAlgoInterface):
     def connected_components(self) -> List[list]:
         allComponents = []
         allV = []
+
         for k in self.graph.get_all_v().keys():
             allV.append(k)
-        while len(allV) != 0:
+
+        while len(allV) > 0:
             temp = allV[0]
             oneComponent = self.connected_component(temp)
             allComponents.append(oneComponent)
 
             for v in oneComponent:
                 allV.remove(v.getKey())
+
         return allComponents
 
     def plot_graph(self) -> None:

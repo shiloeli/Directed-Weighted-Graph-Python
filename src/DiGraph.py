@@ -1,10 +1,8 @@
-from abc import ABC
-
-from Ex3.src.GraphInterface import GraphInterface
-from Ex3.src.NodeData import NodeData
+from src.GraphInterface import GraphInterface
+from src.NodeData import NodeData
 
 
-class DiGraph(GraphInterface, ABC):
+class DiGraph(GraphInterface):
 
     def __init__(self):
         self.vertices: {int, NodeData} = dict()
@@ -72,16 +70,17 @@ class DiGraph(GraphInterface, ABC):
         return False
 
     def remove_node(self, node_id: int) -> bool:
-        if self.getNode(node_id) is None:
-            return False
-        lenOut = len(self.neighborsOut.get(node_id))
-        lenIn = len(self.neighborsIn.get(node_id))
-        self.edgeSize -= lenOut + lenIn
-        self.neighborsOut.pop(node_id)
-        self.neighborsIn.pop(node_id)
-        self.vertices.pop(node_id)
-        self.MC = +1
-        return True
+        if node_id in self.vertices:
+            lenOut = len(self.neighborsOut.get(node_id))
+            lenIn = len(self.neighborsIn.get(node_id))
+            self.edgeSize -= lenOut + lenIn
+            self.neighborsOut.pop(node_id)
+            self.neighborsIn.pop(node_id)
+            self.vertices.pop(node_id)
+            self.MC += 1
+            return True
+
+        return False
 
     def remove_edge(self, node_id1: int, node_id2: int) -> bool:
         if node_id1 in self.vertices and node_id2 in self.vertices:
@@ -95,21 +94,24 @@ class DiGraph(GraphInterface, ABC):
             return True
         return False
 
+    def __eq__(self, other):
+        if not isinstance(other, DiGraph):
+            return False
+
+        return True
+
     def __repr__(self):
         str_graph = "{\"Edges\":["
         for k in self.neighborsOut.keys():
             for k2, w in self.neighborsOut[k].items():
-                str_graph += "{"+f"\"src\":{k},\"w\":{w},\"dest\":{k2}"+"}" + ","
+                str_graph += "{" + f"\"src\":{k},\"w\":{w},\"dest\":{k2}" + "}" + ","
 
         if str_graph[-1] == ',':
             str_graph = str_graph[:-1]
 
         str_graph += "],\"Nodes\":["
-        for k in self.vertices.keys():
-            pos = self.vertices.get(k).getLocation()
-            if pos is None:
-                pos = (0, 0, 0)
-            str_graph += "{" + f"\"pos\":\"{pos[0]},{pos[1]},{pos[2]}\",\"id\":{k}" + "}" + ","
+        for k, v in self.vertices.items():
+            str_graph += str(v) + ","
 
         if str_graph[-1] == ',':
             str_graph = str_graph[:-1]
@@ -117,7 +119,4 @@ class DiGraph(GraphInterface, ABC):
 
         return str_graph
 
-if __name__ == '__main__':
-    g = DiGraph()
-    g.add_node(1)
-    print(g.getNode(1))
+

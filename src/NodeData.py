@@ -38,9 +38,15 @@ class NodeData:
     def getWeight(self) -> float:
         return self.weight
 
+    # def __repr__(self):
+    #     if self.location is None:
+    #         self.location = (0, 0, 0)
+    #
+    #     return f"(key: {self.key} , info: {self.info} , tag: {self.tag}, location: {self.location} , weight:  " \
+    #            f"{self.weight} )"
+
     def __repr__(self):
         if self.location is None:
             self.location = (0, 0, 0)
 
-        return f"(key: {self.key} , info: {self.info} , tag: {self.tag}, location: {self.location} , weight:  " \
-               f"{self.weight} )"
+        return "{" + f"\"pos\":\"{self.location[0]},{self.location[1]},{self.location[2]}\",\"id\":{self.key}" + "}"
