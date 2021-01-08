@@ -2,7 +2,7 @@ from DiGraph import DiGraph
 
 
 # from GraphAlgo import GraphAlgo
-from Ex3.src.GraphAlgo import GraphAlgo
+from src.GraphAlgo import GraphAlgo
 
 
 def check():

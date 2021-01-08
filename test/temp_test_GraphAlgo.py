@@ -1,6 +1,6 @@
 from unittest import TestCase
-from Ex3.src.DiGraph import DiGraph
-from Ex3.src.GraphAlgo import GraphAlgo
+from src.DiGraph import DiGraph
+from src.GraphAlgo import GraphAlgo
 
 
 class TestGraphAlgo(TestCase):

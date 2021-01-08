@@ -1,7 +1,8 @@
+import math
 import unittest
 
-from Ex3.src.DiGraph import DiGraph
-from Ex3.src.GraphAlgo import GraphAlgo
+from src.DiGraph import DiGraph
+from src.GraphAlgo import GraphAlgo
 
 
 def graph_creator(v, e) -> DiGraph:
@@ -19,6 +20,20 @@ def graph_creator(v, e) -> DiGraph:
             break
 
     return g
+
+
+def test_graph_loaded(graph: str) -> None:
+    g_algo = GraphAlgo()
+    file = "../data/"+graph
+    g_algo.load_from_json(file)
+    print(g_algo.get_graph())
+    g_algo.save_to_json(file + "_edited")
+    for k in g_algo.get_graph().get_all_v():
+        for j in g_algo.get_graph().get_all_v():
+            path = g_algo.shortest_path(k, j)
+        # print(f"shortest_path between {k} and {j}: ", path)
+
+    print("Graph "+graph+" done!")
 
 
 class GraphAlgoTest(unittest.TestCase):
@@ -51,20 +66,28 @@ class GraphAlgoTest(unittest.TestCase):
         g.add_edge(3, 4, 1)
         g.add_edge(0, 4, 10)
         ga = GraphAlgo(g)
-        expected = (4, [0, 1, 2, 3, 4])
+        expected = (4, [g.getNode(0), g.getNode(1), g.getNode(2), g.getNode(3), g.getNode(4)])
         actual = ga.shortest_path(0, 4)
         self.assertEqual(actual, expected)
+
         g.add_edge(0, 3, 1)
-        expected = (2, [0, 3, 4])
+        expected = (2, [g.getNode(0), g.getNode(3), g.getNode(4)])
         actual = ga.shortest_path(0, 4)
         self.assertEqual(actual, expected)
+
+        expected = (0, [g.getNode(0)])
         actual = ga.shortest_path(0, 0)
-        self.assertIsNone(actual)
+        self.assertEqual(actual,expected)
+
+        expected = (math.inf, [])
         actual = ga.shortest_path(0, 20)
-        self.assertIsNone(actual)
+        self.assertEqual(actual,expected)
+
+        expected = (math.inf, [])
         actual = ga.shortest_path(2, 0)
-        self.assertIsNone(actual)
-        expected = (1, [0, 3])
+        self.assertEqual(actual,expected)
+
+        expected = (1, [g.getNode(0), g.getNode(3)])
         actual = ga.shortest_path(0, 3)
         self.assertEqual(actual, expected)
 
@@ -99,20 +122,19 @@ class GraphAlgoTest(unittest.TestCase):
         self.assertTrue(g.load_from_json(fileT0))
         g.plot_graph()
 
-    def test_general1(self):
-        g_algo = GraphAlgo()
-        file = '../data/A5'
-        g_algo.load_from_json(file)
-        print(g_algo.get_graph())
-        g_algo.save_to_json(file + "_edited")
-        for k in g_algo.get_graph().get_all_v():
-            for j in g_algo.get_graph().get_all_v():
-                path = g_algo.shortest_path(k, j)
-                print(f"shortest_path between {k} and {j}: ", path)
+    def test_all_shortest_path(self):
+        test_graph_loaded("A0")
+        test_graph_loaded("A1")
+        test_graph_loaded("A2")
+        test_graph_loaded("A3")
+        test_graph_loaded("A4")
+        test_graph_loaded("A5")
+        test_graph_loaded("T0.json")
+
 
     def test_plot_graph_of_100_vertices(self):
         g = graph_creator(100, 100)
-        print(g.vertices)
+        print(g)
         ga = GraphAlgo(g)
         ga.plot_graph()
 

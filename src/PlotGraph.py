@@ -1,6 +1,6 @@
 import random
 import matplotlib.pyplot as plt
-from Ex3.src.DiGraph import DiGraph
+from src.DiGraph import DiGraph
 
 
 class PlotGraph:
