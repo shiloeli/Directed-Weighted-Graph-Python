@@ -13,7 +13,7 @@ class PlotGraph:
     def have_pos(self) -> None:
         self.set_max_and_min()
         for k, v in self.graph.get_all_v().items():
-            if (0, 0, 0) == v.getLocation():
+            if v.getLocation() is None:
                 self.random_pos(k)
 
     def set_max_and_min(self) -> None:
