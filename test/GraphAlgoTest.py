@@ -24,7 +24,7 @@ def graph_creator(v, e) -> DiGraph:
 
 def test_graph_loaded(graph: str) -> None:
     g_algo = GraphAlgo()
-    file = "../data/"+graph
+    file = "../data/" + graph
     g_algo.load_from_json(file)
     print(g_algo.get_graph())
     g_algo.save_to_json(file + "_edited")
@@ -33,7 +33,7 @@ def test_graph_loaded(graph: str) -> None:
             path = g_algo.shortest_path(k, j)
         # print(f"shortest_path between {k} and {j}: ", path)
 
-    print("Graph "+graph+" done!")
+    print("Graph " + graph + " done!")
 
 
 class GraphAlgoTest(unittest.TestCase):
@@ -77,26 +77,55 @@ class GraphAlgoTest(unittest.TestCase):
 
         expected = (0, [g.getNode(0)])
         actual = ga.shortest_path(0, 0)
-        self.assertEqual(actual,expected)
+        self.assertEqual(actual, expected)
 
         expected = (math.inf, [])
         actual = ga.shortest_path(0, 20)
-        self.assertEqual(actual,expected)
+        self.assertEqual(actual, expected)
 
         expected = (math.inf, [])
         actual = ga.shortest_path(2, 0)
-        self.assertEqual(actual,expected)
+        self.assertEqual(actual, expected)
 
         expected = (1, [g.getNode(0), g.getNode(3)])
         actual = ga.shortest_path(0, 3)
         self.assertEqual(actual, expected)
 
-    #
-    #     def test_connected_component(self):
-    #         pass
-    #
-    #     def test_connected_components(self):
-    #         pass
+    def test_connected_component(self):
+        g = DiGraph()
+        g.add_node(1)
+        g.add_node(2)
+        g.add_node(3)
+        g.add_node(4)
+        g.add_node(5)
+
+        g.add_edge(1, 2, 1)
+        g.add_edge(2, 3, 1)
+        g.add_edge(3, 1, 1)
+        g.add_edge(3, 4, 1)
+        g.add_edge(4, 5, 1)
+        ga = GraphAlgo(g)
+        expected = [4]
+        actual = ga.connected_component(4)
+        self.assertEqual(expected,actual)
+
+    def test_connected_components(self):
+        g = DiGraph()
+        g.add_node(1)
+        g.add_node(2)
+        g.add_node(3)
+        g.add_node(4)
+        g.add_node(5)
+
+        g.add_edge(1, 2, 1)
+        g.add_edge(2, 3, 1)
+        g.add_edge(3, 1, 1)
+        g.add_edge(3, 4, 1)
+        g.add_edge(4, 5, 1)
+        ga = GraphAlgo(g)
+        expected = [[1,2,3],[4],[5]]
+        actual = ga.connected_components()
+        self.assertEqual(expected, actual)
 
     def test_plot_graph(self):
         g = GraphAlgo()
@@ -130,7 +159,6 @@ class GraphAlgoTest(unittest.TestCase):
         test_graph_loaded("A4")
         test_graph_loaded("A5")
         test_graph_loaded("T0.json")
-
 
     def test_plot_graph_of_100_vertices(self):
         g = graph_creator(100, 100)

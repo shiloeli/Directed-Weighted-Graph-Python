@@ -2,10 +2,19 @@ from unittest import TestCase
 from src.DiGraph import DiGraph
 
 
-def graph_creator(v) -> DiGraph:
+def graph_creator(v, e) -> DiGraph:
     g = DiGraph()
     for n in range(v):
         g.add_node(n)
+
+    for i in range(0, v):
+        for j in range(1, v):
+            # if (g.edgeSize() < e_size) {
+            if g.e_size() < e:
+                g.add_edge(i, j, 10)
+
+        if g.e_size() >= e:
+            break
 
     return g
 
@@ -148,17 +157,17 @@ class TestDiGraph(TestCase):
         print(g.MC)
 
     def test_100_vertices(self):
-        g = graph_creator(100)
+        g = graph_creator(100,100)
         self.assertEqual(g.v_size(), 100)
 
     def test_10000_vertices(self):
-        g = graph_creator(10000)
+        g = graph_creator(10000,10000)
         self.assertEqual(g.v_size(), 10000)
 
     def test_1000000_vertices(self):
-        g = graph_creator(1000000)
+        g = graph_creator(1000000,1000000)
         self.assertEqual(g.v_size(), 1000000)
 
     def test_10000000_vertices(self):
-        g = graph_creator(10000000)
-        self.assertEqual(g.v_size(), 10000000)
+        g = graph_creator(1000000,10000000)
+        self.assertEqual(g.v_size(), 1000000)
