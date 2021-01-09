@@ -87,7 +87,7 @@ class GraphAlgo(GraphAlgoInterface):
         for n in self.graph.get_all_v().keys():
             temp = self.graph.vertices.get(n)
             temp.setTag(-1)
-        while len(allNode) != 0:
+        while len(allNode) > 0:
             prev = allNode.pop()
             prev.setTag(0)
             for nOut in self.graph.neighborsOut.get(prev.getKey()).keys():
@@ -135,8 +135,9 @@ class GraphAlgo(GraphAlgoInterface):
 
     def plot_graph(self) -> None:
         plot = PlotGraph(self.graph)
-        if plot.have_pos() is False:
-            plot.random_pos()
+        plot.have_pos()
+        # if plot.have_pos() is False:
+        #     plot.random_pos()
         plot.paint()
 
     def Dijkstra(self, node_id: int):

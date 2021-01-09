@@ -5,21 +5,35 @@ from Ex3.src.DiGraph import DiGraph
 
 class PlotGraph:
 
-    def __init__(self, graph: DiGraph):
+    def __init__(self, graph: DiGraph, max_v: tuple = (0, 0, 0), min_v: tuple = (0, 0, 0)):
         self.graph = graph
+        self.max_value = max_v
+        self.min_value = min_v
 
-    def have_pos(self) -> bool:
+    def have_pos(self) -> None:
+        self.set_max_and_min()
+        for k, v in self.graph.get_all_v().items():
+            if (0, 0, 0) == v.getLocation():
+                self.random_pos(k)
+
+    def set_max_and_min(self) -> None:
         for k, v in self.graph.get_all_v().items():
             if (0, 0, 0) != v.getLocation():
-                return True
+                if v.getLocation() > self.max_value:
+                    self.max_value = v.getLocation()
+                if v.getLocation() < self.min_value:
+                    self.min_value = v.getLocation()
 
-        return False
+    def random_pos(self, key: int) -> None:
+        node = self.graph.vertices.get(key)
+        x = random.randint(self.min_value[0], self.max_value[0])
+        y = random.randint(self.min_value[1], self.max_value[1])
+        node.setLocation((x, y, 0))
 
-    def random_pos(self) -> None:
-        for i in range(0, self.graph.v_size()):
-            x = random.randint(1, 30)
-            y = random.randint(1, 30)
-            self.graph.get_all_v()[i].setLocation((x, y, 0))
+        # for i in range(0, self.graph.v_size()):
+        #     x = random.randint(1, 30)
+        #     y = random.randint(1, 30)
+        #     self.graph.get_all_v()[i].setLocation((x, y, 0))
 
     def paint(self):
         x_values = []

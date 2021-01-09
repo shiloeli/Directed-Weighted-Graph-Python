@@ -26,7 +26,7 @@ class NodeData:
     def getTag(self) -> int:
         return self.tag
 
-    def setLocation(self, t: tuple):
+    def setLocation(self, t: tuple = (0, 0, 0)):
         self.location = t
 
     def getLocation(self) -> tuple:
