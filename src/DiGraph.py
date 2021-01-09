@@ -110,12 +110,6 @@ class DiGraph(GraphInterface):
             str_graph = str_graph[:-1]
 
         str_graph += "],\"Nodes\":["
-        # for k in self.vertices.keys():
-        #     pos = self.vertices.get(k).getLocation()
-        #     if pos is None:
-        #         pos = (0, 0, 0)
-        #     print(pos)
-        #     str_graph += "{" + f"\"pos\":\"{pos[0]},{pos[1]},{pos[2]}\",\"id\":{k}" + "}" + ","
 
         for k, v in self.vertices.items():
             str_graph += str(v) + ","

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/DirectedWeightedGraphPython.iml" filepath="$PROJECT_DIR$/.idea/DirectedWeightedGraphPython.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Directed-Weighted-Graph-Python.iml" filepath="$PROJECT_DIR$/.idea/Directed-Weighted-Graph-Python.iml" />
     </modules>
   </component>
 </project>

@@ -9,7 +9,6 @@ def graph_creator(v, e: int = 0) -> DiGraph:
 
     for i in range(0, v):
         for j in range(1, v):
-            # if (g.edgeSize() < e_size) {
             if g.e_size() < e:
                 g.add_edge(i, j, 10)
 
