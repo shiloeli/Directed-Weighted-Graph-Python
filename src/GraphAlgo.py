@@ -62,19 +62,17 @@ class GraphAlgo(GraphAlgoInterface):
 
         path_list = []
         if id1 == id2:
-            path_list.insert(0, self.graph.getNode(id2))
+            path_list.insert(0, id2)
             distance = 0
             listSp = (distance, path_list)
             return listSp
         else:
-            dest = self.graph.getNode(id2)
-            path_list.insert(0, self.graph.getNode(id2))
-            parent = self.graph.getNode(int(dest.getInfo()))
+            path_list.insert(0, id2)
+            parent = self.graph.getNode(id2)
 
             while parent.getInfo() != -1:
-                path_list.insert(0, parent)
+                path_list.insert(0, parent.getInfo())
                 parent = self.graph.getNode(parent.getInfo())
-            path_list.insert(0, self.graph.getNode(id1))
         listSp = distance, path_list
 
         return listSp
@@ -115,7 +113,7 @@ class GraphAlgo(GraphAlgoInterface):
         for node in neiOut:
             for node2 in neiIn:
                 if node.getKey() == node2.getKey():
-                    allNode.append(node)
+                    allNode.append(node.getKey())
                     break
         return allNode
 
@@ -130,7 +128,7 @@ class GraphAlgo(GraphAlgoInterface):
             allComponents.append(oneComponent)
 
             for v in oneComponent:
-                allV.remove(v.getKey())
+                allV.remove(v)
         return allComponents
 
     def plot_graph(self) -> None:

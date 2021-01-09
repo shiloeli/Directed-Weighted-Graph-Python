@@ -14,10 +14,10 @@ class NodeData:
     def getKey(self) -> int:
         return self.key
 
-    def setInfo(self, i: str):
+    def setInfo(self, i: int):
         self.info = i
 
-    def getInfo(self) -> str:
+    def getInfo(self) -> int:
         return self.info
 
     def setTag(self, t: int):

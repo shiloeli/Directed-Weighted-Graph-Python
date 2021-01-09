@@ -31,15 +31,13 @@ class TestGraphAlgo(TestCase):
         g.add_edge(2, 4, 2)
         g2 = GraphAlgo()
         g2.graph = g
-        print(g2.shortest_path(1, 4))
+        print(g2.shortest_path(2, 3))
 
     def test_connected_component(self):
         g_algo = GraphAlgo()
         file = '../data/A1'
         g_algo.load_from_json(file)
-        print(len(g_algo.connected_component(1)))
-
-
+        print(g_algo.connected_component(1))
 
         # g = DiGraph()
         # g.add_node(1)
