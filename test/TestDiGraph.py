@@ -148,13 +148,13 @@ class TestDiGraph(TestCase):
     def test_e_size(self):
         g = DiGraph()
         g.add_node(node_id=1)
-        print(g.MC)
+        print(g.get_mc())
         g.add_node(node_id=2)
         print(g.e_size())
-        print(g.MC)
+        print(g.get_mc())
         g.add_edge(id1=1, id2=2, weight=4)
         print(g.e_size())
-        print(g.MC)
+        print(g.get_mc())
 
     def test_100_vertices(self):
         g = graph_creator(100, 100)
