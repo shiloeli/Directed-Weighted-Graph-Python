@@ -109,6 +109,8 @@ class GraphAlgoTest(unittest.TestCase):
         actual = ga.connected_component(4)
         self.assertEqual(expected, actual)
 
+        # NEED ADD FOR GRAPH A0-A5
+
     def test_connected_components(self):
         g = DiGraph()
         g.add_node(1)
@@ -126,6 +128,8 @@ class GraphAlgoTest(unittest.TestCase):
         expected = [[1, 2, 3], [4], [5]]
         actual = ga.connected_components()
         self.assertEqual(expected, actual)
+
+        # NEED ADD FOR GRAPH A0-A5
 
     def test_plot_graph(self):
         g = GraphAlgo()
