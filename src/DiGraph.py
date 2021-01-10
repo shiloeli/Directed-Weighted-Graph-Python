@@ -110,12 +110,6 @@ class DiGraph(GraphInterface):
             str_graph = str_graph[:-1]
 
         str_graph += "],\"Nodes\":["
-        # for k in self.vertices.keys():
-        #     pos = self.vertices.get(k).getLocation()
-        #     if pos is None:
-        #         pos = (0, 0, 0)
-        #     print(pos)
-        #     str_graph += "{" + f"\"pos\":\"{pos[0]},{pos[1]},{pos[2]}\",\"id\":{k}" + "}" + ","
 
         for k, v in self.vertices.items():
             str_graph += str(v) + ","
@@ -125,4 +119,31 @@ class DiGraph(GraphInterface):
         str_graph += "]}"
 
         return str_graph
+
+    def __eq__(self, other):
+        # Different size
+        if self.v_size() != other.number_of_nodes():
+            return False
+
+        # Different nodes or positions
+        for n in self.vertices:
+            if not other.has_node(n):
+                return False
+            if other.nodes[n]['pos'] != self.getNode(n).getLocation():
+                return False
+
+        # Different edges or weight
+        for node in self.neighborsOut:
+            for key, weight in self.neighborsOut.get(node).items():
+                if not other.has_edge(node,key):
+                    return False
+
+        return True
+
+
+
+
+
+
+
 
