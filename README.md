@@ -1,6 +1,6 @@
 # Directed-Weighted-Graph-Python
 
-<h1>Pokemon Game</h1>
+<h1></h1>
 <p align="center">
 <img src=" width="900" height="400">
 </p>    
