@@ -17,8 +17,8 @@ class PlotGraph:
 
     def random_pos(self) -> None:
         for i in range(0, self.graph.v_size()):
-            x = random.randint(1, 30)
-            y = random.randint(1, 30)
+            x = random.randint(1, 30000)
+            y = random.randint(1, 30000)
             self.graph.get_all_v()[i].setLocation((x, y, 0))
 
     def paint(self):

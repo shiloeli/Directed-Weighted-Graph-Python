@@ -77,6 +77,9 @@ class GraphAlgo(GraphAlgoInterface):
         return listSp
 
     def connected_component(self, id1: int) -> list:
+        if self.__graph.vertices.get(id1) is None:
+            list_none = []
+            return list_none
         neiIn = []
         neiOut = []
         allNode = [self.__graph.getNode(id1)]
@@ -121,6 +124,9 @@ class GraphAlgo(GraphAlgoInterface):
         return allNode
 
     def connected_components(self) -> List[list]:
+        if self.__graph.v_size() < 1:
+            return [[]]
+
         allComponents = []
         allV = []
 

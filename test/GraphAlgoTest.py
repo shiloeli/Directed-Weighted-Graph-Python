@@ -47,13 +47,13 @@ class GraphAlgoTest(unittest.TestCase):
 
     def test_save_and_load(self):
         ga = GraphAlgo()
-        ga.load_from_json("../data/A0")
+        ga.load_from_json("../data/G_10_80_0.json")
 
         ga1 = GraphAlgo(ga.get_graph())
         self.assertEqual(ga1.get_graph().get_all_v(), ga.get_graph().get_all_v())
 
-        ga1.save_to_json("../data/newA0.json")
-        ga.load_from_json("../data/newA0.json")
+        ga1.save_to_json("../data/newG_10_80_0.json")
+        ga.load_from_json("../data/newG_10_80_0.json")
         self.assertEqual(ga1.get_graph().get_mc(), ga.get_graph().get_mc())
         self.assertEqual(ga1.get_graph().v_size(), ga.get_graph().v_size())
         self.assertEqual(ga1.get_graph().e_size(), ga.get_graph().e_size())
@@ -109,6 +109,31 @@ class GraphAlgoTest(unittest.TestCase):
         actual = ga.connected_component(4)
         self.assertEqual(expected, actual)
 
+        g = DiGraph()
+        g.add_edge(1, 2, 2)
+        ga = GraphAlgo(g)
+        expected = []
+        actual = ga.connected_component(2)
+        self.assertEqual(expected, actual)
+
+        g = DiGraph()
+        g.add_node(1)
+        g.add_edge(1, 1, 3)
+
+        ga = GraphAlgo(g)
+        expected = [1]
+        actual = ga.connected_component(1)
+        self.assertEqual(expected, actual)
+
+        g = DiGraph()
+        g.add_node(1)
+        g.add_node(2)
+        g.add_edge(1, 2, 3)
+        ga = GraphAlgo(g)
+        expected = [2]
+        actual = ga.connected_component(2)
+        self.assertEqual(expected, actual)
+
         # NEED ADD FOR GRAPH A0-A5
 
     def test_connected_components(self):
@@ -129,6 +154,22 @@ class GraphAlgoTest(unittest.TestCase):
         actual = ga.connected_components()
         self.assertEqual(expected, actual)
 
+        g = DiGraph()
+        g.add_node(8)
+        g.add_edge(8, 1, 3)
+        ga = GraphAlgo(g)
+        expected = [[8]]
+        actual = ga.connected_components()
+        self.assertEqual(expected, actual)
+
+        g = DiGraph()
+        g.add_edge(8, 1, 3)
+        ga = GraphAlgo(g)
+        expected = [[]]
+        actual = ga.connected_components()
+        self.assertEqual(expected, actual)
+
+
         # NEED ADD FOR GRAPH A0-A5
 
     def test_plot_graph(self):
@@ -140,19 +181,22 @@ class GraphAlgoTest(unittest.TestCase):
         file4 = "../data/A4"
         file5 = "../data/A5"
         fileT0 = "../data/T0.json"
-        self.assertTrue(g.load_from_json(file0))
-        g.plot_graph()
-        self.assertTrue(g.load_from_json(file1))
-        g.plot_graph()
-        self.assertTrue(g.load_from_json(file2))
-        g.plot_graph()
-        self.assertTrue(g.load_from_json(file3))
-        g.plot_graph()
-        self.assertTrue(g.load_from_json(file4))
-        g.plot_graph()
-        self.assertTrue(g.load_from_json(file5))
-        g.plot_graph()
-        self.assertTrue(g.load_from_json(fileT0))
+        fileG_30000 = "../data/G_30000_240000_0.json"
+        # self.assertTrue(g.load_from_json(file0))
+        # g.plot_graph()
+        # self.assertTrue(g.load_from_json(file1))
+        # g.plot_graph()
+        # self.assertTrue(g.load_from_json(file2))
+        # g.plot_graph()
+        # self.assertTrue(g.load_from_json(file3))
+        # g.plot_graph()
+        # self.assertTrue(g.load_from_json(file4))
+        # g.plot_graph()
+        # self.assertTrue(g.load_from_json(file5))
+        # g.plot_graph()
+        # self.assertTrue(g.load_from_json(fileT0))
+        # g.plot_graph()
+        self.assertTrue(g.load_from_json(fileG_30000))
         g.plot_graph()
 
     def test_all_shortest_path(self):
