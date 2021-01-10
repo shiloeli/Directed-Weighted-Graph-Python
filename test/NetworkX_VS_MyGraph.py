@@ -4,6 +4,8 @@ import networkx as nx
 from networkx.readwrite import json_graph
 from unittest import TestCase
 
+from src.GraphAlgo import GraphAlgo
+
 
 def graph_creator(v, e) -> nx.DiGraph:
     g = nx.DiGraph()
@@ -27,7 +29,7 @@ def save(G, file_name):
               open(file_name, 'w'), indent=2)
 
 
-def load(file_name):
+def load(file_name) -> nx.DiGraph:
     # G = nx.DiGraph()
     # d = json.load(open(file_name))
     # G.add_nodes_from(d['Nodes'])
@@ -45,9 +47,12 @@ def load(file_name):
                     pos = [0, 0, 0]
 
                 g.add_node(item['id'], pos=(pos[0], pos[1], pos[2]))
+
             for item in my_dict['Edges']:
-                g.add_edge(item['src'], item['dest'], weigth=item['w'])
-            return True
+                g.add_edge(item['src'], item['dest'])
+                g[item['src']][item['dest']]['weight'] = item['w']
+
+            return g
     except IOError:
         return False
     # return G
@@ -55,43 +60,57 @@ def load(file_name):
 
 class NetworkX_VS_MyGraph(TestCase):
 
-    # def test_save_and_load(self):
-    #     g = nx.DiGraph()
-    #     g.
-    #     g = load("../data/A0")
-    #     print(g.nodes)
+    def test_save_and_load(self):
+        g = load("../data/A1")
+        ga = GraphAlgo()
+        ga.load_from_json("../data/A1")
+
+        self.assertTrue(ga.get_graph().__eq__(g))
+        # print(g[0][1]['weight'])
+        # g.has_edge()
+        # if (35.18753053591606, 32.10378225882353, 0.0) == (35.18753053591606,32.10378225882353,0):
+        #     print("test")
+
+
+
+        # g = load("../data/A1")
+        # g = load("../data/A2")
+        # g = load("../data/A3")
+        # g = load("../data/A4")
+        # g = load("../data/A5")
+        # g = load("../data/T0.json")
+
 
     def test_shortest_path(self):
         g = graph_creator(5, 0)
         g.add_edge(0, 1)
-
         g[0][1]['weight'] = 1
-        g.add_edge(1, 2)
-        g[1][2]['weight'] = 1
-        g.add_edge(2, 3)
-        g[2][3]['weight'] = 1
-        g.add_edge(3, 4)
-        g[3][4]['weight'] = 1
-        g.add_edge(0, 4)
-        g[0][4]['weight'] = 10
-        expected = [0, 1, 2, 3, 4]
-        actual = nx.dijkstra_path(g, 0, 4)
-        self.assertEqual(expected, actual)
-
-        g.add_edge(0, 3)
-        g[0][3]['weight'] = 1
-
-        expected = [0, 3, 4]
-        actual = nx.dijkstra_path(g, 0, 4)
-        self.assertEqual(actual, expected)
-
-        expected = [0]
-        actual = nx.dijkstra_path(g, 0, 0)
-        self.assertEqual(actual, expected)
-
-        expected = [0, 3]
-        actual = nx.dijkstra_path(g, 0, 3)
-        self.assertEqual(actual, expected)
+        # g.add_edge(1, 2)
+        # g[1][2]['weight'] = 1
+        # g.add_edge(2, 3)
+        # g[2][3]['weight'] = 1
+        # g.add_edge(3, 4)
+        # g[3][4]['weight'] = 1
+        # g.add_edge(0, 4)
+        # g[0][4]['weight'] = 10
+        # expected = [0, 1, 2, 3, 4]
+        # actual = nx.dijkstra_path(g, 0, 4)
+        # self.assertEqual(expected, actual)
+        #
+        # g.add_edge(0, 3)
+        # g[0][3]['weight'] = 1
+        #
+        # expected = [0, 3, 4]
+        # actual = nx.dijkstra_path(g, 0, 4)
+        # self.assertEqual(actual, expected)
+        #
+        # expected = [0]
+        # actual = nx.dijkstra_path(g, 0, 0)
+        # self.assertEqual(actual, expected)
+        #
+        # expected = [0, 3]
+        # actual = nx.dijkstra_path(g, 0, 3)
+        # self.assertEqual(actual, expected)
 
     def test_100_vertices(self):
         g = graph_creator(100, 100)
