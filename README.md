@@ -2,7 +2,7 @@
 
 <h1>Pokemon Game</h1>
 <p align="center">
-<img src="https://sm.ign.com/t/ign_il/screenshot/default/c89b6bc7-0673-4720-b761-bab17c7d53fa-xoq7fo_119x.1280.jpg" width="900" height="400">
+<img src=" width="900" height="400">
 </p>    
 
 <h2>Description</h2>
@@ -124,7 +124,7 @@ In this class you can do various actions on Pokemon such as: get and set actions
 *For more information on the game visit* **Wiki**
 
 <p align="center">
-<img src="https://media.giphy.com/media/Cfyg66IOQyNAZq3Zkv/giphy.gif" width="700" height="400">   
+<img src="" width="700" height="400">   
 </p>
 
 
