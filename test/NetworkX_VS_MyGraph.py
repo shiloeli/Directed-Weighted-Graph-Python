@@ -7,8 +7,12 @@ from unittest import TestCase
 
 def graph_creator(v, e) -> nx.DiGraph:
     g = nx.DiGraph()
+    g.has_edge()
+    g._
     for n in range(v):
         g.add_node(n)
+
+
 
     for i in range(0, v):
         for j in range(1, v):
