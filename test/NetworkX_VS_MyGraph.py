@@ -55,9 +55,11 @@ def load(file_name):
 
 class NetworkX_VS_MyGraph(TestCase):
 
-    def test_save_and_load(self):
-        g = load("../data/A0")
-        print(g.nodes)
+    # def test_save_and_load(self):
+    #     g = nx.DiGraph()
+    #     g.
+    #     g = load("../data/A0")
+    #     print(g.nodes)
 
     def test_shortest_path(self):
         g = graph_creator(5, 0)
