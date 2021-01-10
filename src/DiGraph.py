@@ -94,12 +94,6 @@ class DiGraph(GraphInterface):
             return True
         return False
 
-    def __eq__(self, other):
-        if not isinstance(other, DiGraph):
-            return False
-
-        return True
-
     def __repr__(self):
         str_graph = "{\"Edges\":["
         for k in self.neighborsOut.keys():
