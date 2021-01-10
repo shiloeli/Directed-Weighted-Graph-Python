@@ -8,14 +8,14 @@ class DiGraph(GraphInterface):
         self.vertices: {int, NodeData} = dict()
         self.neighborsOut: {int, {int, float}} = dict()
         self.neighborsIn: {int, {int, float}} = dict()
-        self.MC = 0
-        self.edgeSize = 0
+        self.__MC = 0
+        self.__edgeSize = 0
 
     def v_size(self) -> int:
         return len(self.vertices)
 
     def e_size(self) -> int:
-        return self.edgeSize
+        return self.__edgeSize
 
     def get_all_v(self) -> dict:
         return self.vertices
@@ -27,7 +27,7 @@ class DiGraph(GraphInterface):
         return self.neighborsOut.get(id1)
 
     def get_mc(self) -> int:
-        return self.MC
+        return self.__MC
 
     def getEdge(self, src: int, dest: int):
         if self.neighborsOut.get(src) is None:
@@ -51,8 +51,8 @@ class DiGraph(GraphInterface):
 
         self.neighborsOut[id1][id2] = weight
         self.neighborsIn[id2][id1] = weight
-        self.edgeSize = self.edgeSize + 1
-        self.MC += 1
+        self.__edgeSize = self.__edgeSize + 1
+        self.__MC += 1
         return True
 
     def add_node(self, node_id: int, pos: tuple = None) -> bool:
@@ -61,7 +61,7 @@ class DiGraph(GraphInterface):
         self.vertices[node_id] = NodeData(key=node_id, location=pos)
         self.neighborsOut[node_id] = {}
         self.neighborsIn[node_id] = {}
-        self.MC = self.MC + 1
+        self.__MC = self.__MC + 1
         return True
 
     def getNode(self, node_id: int):
@@ -73,11 +73,11 @@ class DiGraph(GraphInterface):
         if node_id in self.vertices:
             lenOut = len(self.neighborsOut.get(node_id))
             lenIn = len(self.neighborsIn.get(node_id))
-            self.edgeSize -= lenOut + lenIn
+            self.__edgeSize -= lenOut + lenIn
             self.neighborsOut.pop(node_id)
             self.neighborsIn.pop(node_id)
             self.vertices.pop(node_id)
-            self.MC += 1
+            self.__MC += 1
             return True
 
         return False
@@ -87,18 +87,12 @@ class DiGraph(GraphInterface):
             if self.neighborsOut.get(node_id1) is None or self.neighborsOut.get(node_id1).get(
                     node_id2) is None:
                 return False
-            self.edgeSize = self.edgeSize - 1
-            self.MC += 1
+            self.__edgeSize = self.__edgeSize - 1
+            self.__MC += 1
             self.neighborsOut.get(node_id1).pop(node_id2)
             self.neighborsIn.get(node_id2).pop(node_id1)
             return True
         return False
-
-    def __eq__(self, other):
-        if not isinstance(other, DiGraph):
-            return False
-
-        return True
 
     def __repr__(self):
         str_graph = "{\"Edges\":["
@@ -139,11 +133,3 @@ class DiGraph(GraphInterface):
                     return False
 
         return True
-
-
-
-
-
-
-
-

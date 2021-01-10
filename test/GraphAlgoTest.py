@@ -31,7 +31,7 @@ def test_graph_loaded(graph: str) -> None:
     for k in g_algo.get_graph().get_all_v():
         for j in g_algo.get_graph().get_all_v():
             path = g_algo.shortest_path(k, j)
-        # print(f"shortest_path between {k} and {j}: ", path)
+            # print(f"shortest_path between {k} and {j}: ", path)
 
     print("Graph " + graph + " done!")
 
@@ -43,14 +43,14 @@ class GraphAlgoTest(unittest.TestCase):
         ga = GraphAlgo()
         self.assertIsNone(ga.get_graph())
         ga = GraphAlgo(g)
-        self.assertEqual(ga.get_graph(), g)
+        self.assertEqual(ga.get_graph().get_all_v(), g.get_all_v())
 
     def test_save_and_load(self):
         ga = GraphAlgo()
         ga.load_from_json("../data/A0")
 
         ga1 = GraphAlgo(ga.get_graph())
-        self.assertEqual(ga1.get_graph(), ga.get_graph())
+        self.assertEqual(ga1.get_graph().get_all_v(), ga.get_graph().get_all_v())
 
         ga1.save_to_json("../data/newA0.json")
         ga.load_from_json("../data/newA0.json")

@@ -23,17 +23,32 @@ def graph_creator(v, e) -> nx.DiGraph:
     return g
 
 
-def save(G, file_name):
-    json.dump(dict(nodes=[[n, G.node[n]] for n in G.nodes()],
-                   edges=[[u, v, G.edge[u][v]] for u, v in G.edges()]),
-              open(file_name, 'w'), indent=2)
+def save_json_in_networkX(G, file_name):
+    str_graph = "{\"Edges\":["
+    for s, d, w in G.edges(data=True):
+        str_graph += "{" + f"\"src\":{s},\"w\":{w['weight']},\"dest\":{d}" + "}" + ","
+
+    if str_graph[-1] == ',':
+        str_graph = str_graph[:-1]
+
+    str_graph += "],\"Nodes\":["
+
+    for node, data in G.nodes(data=True):
+        str_graph += "{" + f"\"pos\":\"{data['pos'][0]},{data['pos'][1]},{data['pos'][2]}\",\"id\":{node}" + "}" + ","
+
+    if str_graph[-1] == ',':
+        str_graph = str_graph[:-1]
+    str_graph += "]}"
+
+    try:
+        with open(file_name, "w") as file:
+            file.write(str_graph)
+            return True
+    except IOError:
+        return False
 
 
-def load(file_name) -> nx.DiGraph:
-    # G = nx.DiGraph()
-    # d = json.load(open(file_name))
-    # G.add_nodes_from(d['Nodes'])
-    # G.add_edges_from(d['Edges'])
+def load_json_in_networkX(file_name) -> nx.DiGraph:
     g = nx.DiGraph()
     try:
         with open(file_name, "r") as file:
@@ -55,62 +70,116 @@ def load(file_name) -> nx.DiGraph:
             return g
     except IOError:
         return False
-    # return G
 
 
 class NetworkX_VS_MyGraph(TestCase):
 
-    def test_save_and_load(self):
-        g = load("../data/A1")
+    def test_save_and_load_and_equal(self):
+        g = load_json_in_networkX("../data/A0")
+        save_json_in_networkX(g, "../data/newA0.json")
+        ga = GraphAlgo()
+        ga.load_from_json("../data/newA0.json")
+        self.assertTrue(ga.get_graph().__eq__(g))
+
+        g = load_json_in_networkX("../data/A1")
+        save_json_in_networkX(g, "../data/newA1.json")
         ga = GraphAlgo()
         ga.load_from_json("../data/A1")
-
         self.assertTrue(ga.get_graph().__eq__(g))
-        # print(g[0][1]['weight'])
-        # g.has_edge()
-        # if (35.18753053591606, 32.10378225882353, 0.0) == (35.18753053591606,32.10378225882353,0):
-        #     print("test")
 
+        g = load_json_in_networkX("../data/A2")
+        save_json_in_networkX(g, "../data/newA2.json")
+        ga = GraphAlgo()
+        ga.load_from_json("../data/A2")
+        self.assertTrue(ga.get_graph().__eq__(g))
 
+        g = load_json_in_networkX("../data/A3")
+        save_json_in_networkX(g, "../data/newA3.json")
+        ga = GraphAlgo()
+        ga.load_from_json("../data/A3")
+        self.assertTrue(ga.get_graph().__eq__(g))
 
-        # g = load("../data/A1")
-        # g = load("../data/A2")
-        # g = load("../data/A3")
-        # g = load("../data/A4")
-        # g = load("../data/A5")
-        # g = load("../data/T0.json")
+        g = load_json_in_networkX("../data/A4")
+        save_json_in_networkX(g, "../data/newA4.json")
+        ga = GraphAlgo()
+        ga.load_from_json("../data/A4")
+        self.assertTrue(ga.get_graph().__eq__(g))
 
+        g = load_json_in_networkX("../data/A5")
+        save_json_in_networkX(g, "../data/newA4.json")
+        ga = GraphAlgo()
+        ga.load_from_json("../data/A5")
+        self.assertTrue(ga.get_graph().__eq__(g))
+
+        g = load_json_in_networkX("../data/T0.json")
+        save_json_in_networkX(g, "../data/newT0.json")
+        ga = GraphAlgo()
+        ga.load_from_json("../data/T0.json")
+        self.assertTrue(ga.get_graph().__eq__(g))
 
     def test_shortest_path(self):
         g = graph_creator(5, 0)
         g.add_edge(0, 1)
         g[0][1]['weight'] = 1
-        # g.add_edge(1, 2)
-        # g[1][2]['weight'] = 1
-        # g.add_edge(2, 3)
-        # g[2][3]['weight'] = 1
-        # g.add_edge(3, 4)
-        # g[3][4]['weight'] = 1
-        # g.add_edge(0, 4)
-        # g[0][4]['weight'] = 10
-        # expected = [0, 1, 2, 3, 4]
-        # actual = nx.dijkstra_path(g, 0, 4)
-        # self.assertEqual(expected, actual)
-        #
-        # g.add_edge(0, 3)
-        # g[0][3]['weight'] = 1
-        #
-        # expected = [0, 3, 4]
-        # actual = nx.dijkstra_path(g, 0, 4)
-        # self.assertEqual(actual, expected)
-        #
-        # expected = [0]
-        # actual = nx.dijkstra_path(g, 0, 0)
-        # self.assertEqual(actual, expected)
-        #
-        # expected = [0, 3]
-        # actual = nx.dijkstra_path(g, 0, 3)
-        # self.assertEqual(actual, expected)
+        g.add_edge(1, 2)
+        g[1][2]['weight'] = 1
+        g.add_edge(2, 3)
+        g[2][3]['weight'] = 1
+        g.add_edge(3, 4)
+        g[3][4]['weight'] = 1
+        g.add_edge(0, 4)
+        g[0][4]['weight'] = 10
+        expected = [0, 1, 2, 3, 4]
+        actual = nx.dijkstra_path(g, 0, 4)
+        self.assertEqual(expected, actual)
+
+        g.add_edge(0, 3)
+        g[0][3]['weight'] = 1
+
+        expected = [0, 3, 4]
+        actual = nx.dijkstra_path(g, 0, 4)
+        self.assertEqual(actual, expected)
+
+        expected = [0]
+        actual = nx.dijkstra_path(g, 0, 0)
+        self.assertEqual(actual, expected)
+
+        expected = [0, 3]
+        actual = nx.dijkstra_path(g, 0, 3)
+        self.assertEqual(actual, expected)
+
+    def calculate_shortest_path(self, g):
+        for node, data in g.nodes(data=True):
+            for node1, data1 in g.nodes(data=True):
+                # print(nx.dijkstra_path(g, node, node1))
+                nx.dijkstra_path(g, node, node1)
+
+
+    def test_shortest_path_of_graphA0_A5(self):
+        g = load_json_in_networkX("../data/A0")
+        self.calculate_shortest_path(g)
+        print("A0 Done!")
+
+        g = load_json_in_networkX("../data/A1")
+        self.calculate_shortest_path(g)
+        print("A1 Done!")
+
+        g = load_json_in_networkX("../data/A2")
+        self.calculate_shortest_path(g)
+        print("A2 Done!")
+
+        g = load_json_in_networkX("../data/A3")
+        self.calculate_shortest_path(g)
+        print("A3 Done!")
+
+        g = load_json_in_networkX("../data/A4")
+        self.calculate_shortest_path(g)
+        print("A4 Done!")
+
+        g = load_json_in_networkX("../data/A5")
+        self.calculate_shortest_path(g)
+        print("A5 Done!")
+
 
     def test_100_vertices(self):
         g = graph_creator(100, 100)
@@ -124,6 +193,3 @@ class NetworkX_VS_MyGraph(TestCase):
         g = graph_creator(1000000, 1000000)
         self.assertEqual(g.number_of_nodes(), 1000000)
 
-    def test_10000000_vertices(self):
-        g = graph_creator(10000000, 10000000)
-        self.assertEqual(g.number_of_nodes(), 10000000)
