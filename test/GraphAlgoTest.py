@@ -26,17 +26,19 @@ def test_graph_loaded(graph: str) -> None:
     g_algo = GraphAlgo()
     file = "../data/" + graph
     g_algo.load_from_json(file)
-    # print(g_algo.get_graph())
-    g_algo.save_to_json(file + "_edited")
-    limit = 0
-    for k in g_algo.get_graph().get_all_v():
-        limit += 1
-        if limit < 1000:
-            path = g_algo.shortest_path(0, k)
-        else:
-            return
+    path = g_algo.shortest_path(0, 1)
 
-    print("Graph " + graph + " done!")
+    # # print(g_algo.get_graph())
+    # g_algo.save_to_json(file + "_edited")
+    # limit = 0
+    # for k in g_algo.get_graph().get_all_v():
+    #     limit += 1
+    #     if limit < 1000:
+    #         path = g_algo.shortest_path(0, k)
+    #     else:
+    #         return
+    #
+    # print("Graph " + graph + " done!")
 
 
 class GraphAlgoTest(unittest.TestCase):
@@ -50,13 +52,13 @@ class GraphAlgoTest(unittest.TestCase):
 
     def test_save_and_load(self):
         ga = GraphAlgo()
-        ga.load_from_json("../data/G_10_80_0.json")
+        ga.load_from_json("../data/G_30000_240000_0.json")
 
         ga1 = GraphAlgo(ga.get_graph())
         self.assertEqual(ga1.get_graph().get_all_v(), ga.get_graph().get_all_v())
 
-        ga1.save_to_json("../data/newG_10_80_1.json")
-        ga.load_from_json("../data/newG_10_80_1.json")
+        ga1.save_to_json("../data/newG_30000_240000.json")
+        ga.load_from_json("../data/newG_30000_240000.json")
         self.assertEqual(ga1.get_graph().get_mc(), ga.get_graph().get_mc())
         self.assertEqual(ga1.get_graph().v_size(), ga.get_graph().v_size())
         self.assertEqual(ga1.get_graph().e_size(), ga.get_graph().e_size())
@@ -99,27 +101,27 @@ class GraphAlgoTest(unittest.TestCase):
         Calculate a shortest path from each node to the other nodes
         :return: None
         """
-        # test_graph_loaded("A0")
-        # test_graph_loaded("A1")
-        # test_graph_loaded("A2")
-        # test_graph_loaded("A3")
-        # test_graph_loaded("A4")
-        # test_graph_loaded("A5")
-        # test_graph_loaded("T0.json")
+        test_graph_loaded("A0")
+        test_graph_loaded("A1")
+        test_graph_loaded("A2")
+        test_graph_loaded("A3")
+        test_graph_loaded("A4")
+        test_graph_loaded("A5")
+        test_graph_loaded("T0.json")
 
-        # test_graph_loaded("G_10_80_0.json")
-        # test_graph_loaded("G_100_800_0.json")
+        test_graph_loaded("G_10_80_0.json")
+        test_graph_loaded("G_100_800_0.json")
         test_graph_loaded("G_1000_8000_0.json")
-        # test_graph_loaded("G_10000_80000_0.json")
-        # test_graph_loaded("G_20000_160000_0.json")
-        # test_graph_loaded("G_30000_240000_0.json")
-        #
-        # test_graph_loaded("G_10_80_1.json")
-        # test_graph_loaded("G_100_800_1.json")
-        # test_graph_loaded("G_1000_8000_1.json")
-        # test_graph_loaded("G_10000_80000_1.json")
-        # test_graph_loaded("G_20000_160000_1.json")
-        # test_graph_loaded("G_30000_240000_1.json")
+        test_graph_loaded("G_10000_80000_0.json")
+        test_graph_loaded("G_20000_160000_0.json")
+        test_graph_loaded("G_30000_240000_0.json")
+
+        test_graph_loaded("G_10_80_1.json")
+        test_graph_loaded("G_100_800_1.json")
+        test_graph_loaded("G_1000_8000_1.json")
+        test_graph_loaded("G_10000_80000_1.json")
+        test_graph_loaded("G_20000_160000_1.json")
+        test_graph_loaded("G_30000_240000_1.json")
 
     def test_connected_component_in_graph_loaded(self):
         ga = GraphAlgo()
@@ -156,11 +158,11 @@ class GraphAlgoTest(unittest.TestCase):
         ga.load_from_json("../data/G_100_800_0.json")
         component = ga.connected_components()
         self.assertEqual(1, len(component))
-
+        #
         ga.load_from_json("../data/G_1000_8000_0.json")
         component = ga.connected_components()
         self.assertEqual(1, len(component))
-
+        #
         ga.load_from_json("../data/G_10000_80000_0.json")
         component = ga.connected_components()
         self.assertEqual(12, len(component))
