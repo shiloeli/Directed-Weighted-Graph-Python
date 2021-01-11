@@ -38,10 +38,10 @@ Main functions - add_edge(), add_node(),remove_node(), remove_edge().<br>
 
 **GraphAlgo class:**<br>
 This class represents a Directed (positive) Weighted Graph Theory Algorithms including.<br>
-graph-Is an abstract representation of a set of nodes and edge, each edge has a weight.<br>
+* graph-Is an abstract representation of a set of nodes and edge, each edge has a weight.<br>
 Main methods and a brief explanation:<br>
-* __init__() - Initialize the graph.<br>
-* get_graph() - Returns the graph.<br>
+*__init__()* - Initialize the graph.<br>
+*get_graph()* - Returns the graph.<br>
 * load_from_json() - load a graph to this graph.<br>
 * save_to_json() - Saves this weighted (directed) graph to the given.<br>
 * shortest_path() - Returns the shortest path from node src to node dest using Dijkstra's Algorithm.<br>
