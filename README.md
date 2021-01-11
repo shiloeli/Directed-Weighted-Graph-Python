@@ -77,16 +77,15 @@ For more explanation: https://en.wikipedia.org/wiki/Depth-first_search <br>
 
 
 <p align="center">
-<img src="http://www.up2me.co.il/imgs/35483045.jpg" width="500" height="400">   
+<img src="http://www.up2me.co.il/imgs/35483045.jpg" width="600" height="400">   
 </p>
 
 
 
 
 <p align="center">
-The game can be played from:
-<img src="http://up419.siz.co.il/up3/zwmomgyy2ykj.png" width="50" height="50">      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/IntelliJ_IDEA_Logo.svg/1024px-IntelliJ_IDEA_Logo.svg.png" width="50" height="50"> 
-<img src="https://sdtimes.com/wp-content/uploads/2019/03/jW4dnFtA_400x400.jpg" width="50" height="50" background="white">  
+**Workspace**
+<img src="https://lh3.googleusercontent.com/proxy/dRS-RkCj2m7_0TO8-N_WR64vMglAr1uw6PFrS_aOHGLGVxSgGyBElaeSr532sg1Ch7R6EOI4RMU51XXz7pZYHlw9UJNQio5TRZglPKdF2stf1RrgY5BX8m2mI8GqmqNB" width="50" height="50">  
  </p>   
  
  
