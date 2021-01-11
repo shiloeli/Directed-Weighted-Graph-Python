@@ -1,7 +1,7 @@
 # Directed-Weighted-Graph-Python
 
 <p align="center">
-<img src="https://50000feet-com-files.s3.us-east-2.amazonaws.com/s3fs-public/50k_ai_03.gif" width="1000" height="400">
+<img src="https://media1.giphy.com/media/xT0xezPWsmgkpiGfkY/giphy.gif" width="1000" height="400">
 </p>  
 
 
