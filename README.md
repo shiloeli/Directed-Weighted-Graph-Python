@@ -20,10 +20,10 @@ class:
 this class represents the set of operations applicable on a node (vertex) in a (directional) weighted graph.<br>
 The node in the graph consists of five things:<br>
 * key - Unique ID of the node in graph<br>
-* info- Contains some characteristic of the node such as color and more .. In this project it stores the parent node.<br>
-* tag-Temporal data which can be used be algorithms.<br>
-* location- location of this node.<br>
-* weight- Weight of the node.<br>
+* info - Contains some characteristic of the node such as color and more .. In this project it stores the parent node.<br>
+* tag - Temporal data which can be used be algorithms.<br>
+* location - location of this node.<br>
+* weight - Weight of the node.<br>
     
 **DiGraph class:**<br>
 This class represent directed weighted graph<br>
@@ -39,7 +39,7 @@ Main functions - add_edge(), add_node(),remove_node(), remove_edge().<br>
 
 **GraphAlgo class:**<br>
 This class represents a Directed (positive) Weighted Graph Theory Algorithms including.<br>
-* graph-Is an abstract representation of a set of nodes and edge, each edge has a weight.<br>
+* graph - Is an abstract representation of a set of nodes and edge, each edge has a weight.<br>
 
 Main methods and a brief explanation:<br>
 **__init__()** - Initialize the graph.<br>
