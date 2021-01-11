@@ -13,16 +13,18 @@
 
 
 
-First part:
+class:
 ---------------
 
 is made up of 4 classes<br>
 **NodeData class:**
-This implements node_data node in a graph consists of a<br>
-info, tag, location and weight.
-In this class you can perform operations on a node in a graph such as a
-constructor and get and set operations on the node fields.
-
+this class represents the set of operations applicable on a node (vertex) in a (directional) weighted graph.
+    The node in the graph consists of five things:
+    key - Unique ID of the node in graph
+    info- Contains some characteristic of the node such as color and more .. In this project it stores the parent node.
+    tag-Temporal data which can be used be algorithms.
+    location- location of this node.
+    weight- Weight of the node.
 **DWGraph_DS class:**<br>
 This implementation directed_weighted_graph<br>
 A graph is made up of a <br>
