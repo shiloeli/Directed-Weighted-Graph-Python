@@ -34,11 +34,13 @@ Graph is represented by:<br>
 * neighborsIn - Represents the edges entering the node.<br>
 * MC- number of changes made to the graph.<br>
 * edgeSize-number of edges in the graph.<br>
+
 Main functions - add_edge(), add_node(),remove_node(), remove_edge().<br> 
 
 **GraphAlgo class:**<br>
 This class represents a Directed (positive) Weighted Graph Theory Algorithms including.<br>
 * graph-Is an abstract representation of a set of nodes and edge, each edge has a weight.<br>
+
 Main methods and a brief explanation:<br>
 **__init__()** - Initialize the graph.<br>
 **get_graph()** - Returns the graph.<br>
