@@ -169,7 +169,6 @@ class GraphAlgoTest(unittest.TestCase):
         actual = ga.connected_components()
         self.assertEqual(expected, actual)
 
-
         # NEED ADD FOR GRAPH A0-A5
 
     def test_plot_graph(self):
