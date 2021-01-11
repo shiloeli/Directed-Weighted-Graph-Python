@@ -84,7 +84,7 @@ For more explanation: https://en.wikipedia.org/wiki/Depth-first_search <br>
 
 
 <p align="center">
-Workspace:
+Workspace:<br>
     
 <img src="https://lh3.googleusercontent.com/proxy/dRS-RkCj2m7_0TO8-N_WR64vMglAr1uw6PFrS_aOHGLGVxSgGyBElaeSr532sg1Ch7R6EOI4RMU51XXz7pZYHlw9UJNQio5TRZglPKdF2stf1RrgY5BX8m2mI8GqmqNB" width="100" height="100">  
  </p>   
