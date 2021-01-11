@@ -73,7 +73,7 @@ For more explanation: https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm <br>
 Intuitively, the algorithm starts the search from an arbitrary node in the graph and advances along the graph until it gets stuck, then it repeats its traces until it can choose to advance to the node it has not yet reached.<br>
 For more explanation: https://en.wikipedia.org/wiki/Depth-first_search <br>
 
-*For more information on the game visit* **Wiki**
+*For more information on project* **Wiki**
 
 
 <p align="center">
