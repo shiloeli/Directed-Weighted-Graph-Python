@@ -1,21 +1,16 @@
 # Directed-Weighted-Graph-Python
 
 <p align="center">
-<img src="https://camo.githubusercontent.com/0b0a19eececf5e6d5823f317df2e94d6023e2e5391edb9f707df1d7060cf6583/68747470733a2f2f7265732e636c6f7564696e6172792e636f6d2f64636c706f7a6a67612f696d6167652f75706c6f61642f76313537363634393633392f464447726170685f6b68736772755f6a75727776632e676966" width="900" height="200">
+<img src="https://camo.githubusercontent.com/0b0a19eececf5e6d5823f317df2e94d6023e2e5391edb9f707df1d7060cf6583/68747470733a2f2f7265732e636c6f7564696e6172792e636f6d2f64636c706f7a6a67612f696d6167652f75706c6f61642f76313537363634393633392f464447726170685f6b68736772755f6a75727776632e676966" width="900" height="300">
 </p>  
 
-
-<h1></h1>
 <h2>Description</h2>
 
+>This project deals with the construction of directed weighted graph starting from the creation of the nodes in the graph,<br>
+>continues with the creation of the graph itself (such as connecting the nodes in the graph and more) and basic algorithms related to the graph <br>
+>(paths in the parent link graph and more).<br>
+>A graph is made up of three interfaces main arranged according to the hierarchy from the creation of a node to the execution of an algorithm on the graph.<br>
 
->* First part:<br>
->deals with the construction of directional weighted graphstarting from the creation of the nodes and edges in the graph,<br>
->continues with the creation of the graph itself (such as connecting the nodes in the graph and more) and basic algorithms related to the graph
->(paths in the parent link graph and more).
->A graph is made up of four interfaces arranged according to the hierarchy from the creation of a node to the execution of an algorithm on the graph.
->* Second part:<br> 
->Engaged in creating the Pokemon game from building the game itself graphics, actions performed in the game, placing the agents and building a victory strategy.<br>
 
 
 First part:
