@@ -47,3 +47,31 @@ class PlotGraph:
         plt.title("Directed Weighted Graph")
 
         plt.show()
+
+        # x_values = []
+        # y_values = []
+        # id_node = []
+        # for x, v in self.graph.get_all_v().items():
+        #     x_values.append(v.getLocation()[0])
+        #     y_values.append(v.getLocation()[1])
+        #     id_node.append(x)
+        #
+        # fig, ax = plt.subplots()
+        # ax.scatter(x_values, y_values)
+        #
+        # for i, txt in enumerate(id_node):
+        #     ax.annotate(id_node[i], (x_values[i], y_values[i]), color='green')
+        #
+        # for k, v in self.graph.get_all_v().items():
+        #     for n in self.graph.all_out_edges_of_node(k).keys():
+        #         x = [v.getLocation()[0], self.graph.get_all_v()[n].getLocation()[0]]
+        #         y = [v.getLocation()[1], self.graph.get_all_v()[n].getLocation()[1]]
+        #         # plt.plot(x, y, "-", color='black')
+        #         plt.annotate("", xy=(x[0], y[0]), xytext=(x[1], y[1]), arrowprops=dict(arrowstyle="-|>"))
+        #
+        # plt.plot(x_values, y_values, "o", color='red')
+        # plt.title("Directed Weighted Graph")
+        #
+        # plt.show()
+
+

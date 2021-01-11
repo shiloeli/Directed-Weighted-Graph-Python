@@ -52,8 +52,8 @@ class GraphAlgoTest(unittest.TestCase):
         ga1 = GraphAlgo(ga.get_graph())
         self.assertEqual(ga1.get_graph().get_all_v(), ga.get_graph().get_all_v())
 
-        ga1.save_to_json("../data/newG_10_80_0.json")
-        ga.load_from_json("../data/newG_10_80_0.json")
+        ga1.save_to_json("../data/newG_10_80_1.json")
+        ga.load_from_json("../data/newG_10_80_1.json")
         self.assertEqual(ga1.get_graph().get_mc(), ga.get_graph().get_mc())
         self.assertEqual(ga1.get_graph().v_size(), ga.get_graph().v_size())
         self.assertEqual(ga1.get_graph().e_size(), ga.get_graph().e_size())
