@@ -60,25 +60,21 @@ Main functions:<br>
 **paint()** - This method draws the graph.<br>
 
 **Data Structure:**<br>
-HashMap-It is used because it allows you to get data based on key in O(1).<br>
-ArrayList-Because it has the ability to create a list in the desired order.<br>
+directory-It Because by key you can get a number of values that depend on it.<br>
+List-Convenient to store values in desired order (and we were required to use it)r.<br>
 PriorityQueue-Because it has the ability to adjust the position of the object by definition.<br>
 
+**Algorithms:**<br>
+* Dijkstra - Solves the problem of finding the easiest route from a point on the graph to a destination in a weighted graph. Because using this algorithm you can find, at the same time, the fast paths to all the points in the graph.<br>
+The algorithm works on a given graph, intentional or unintentional, with non-negative weights on the arcs. The weights in the graph symbolize distance. The shortest route<br> between two points means the route with the lowest amount of weights between the two points.<br>
+For more explanation: https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm <br>
+
+* DFS - Is an algorithm used to move or search a graph.<br>
+Intuitively, the algorithm starts the search from an arbitrary node in the graph and advances along the graph until it gets stuck, then it repeats its traces until it can choose to advance to the node it has not yet reached.<br>
+For more explanation: https://en.wikipedia.org/wiki/Depth-first_search <br>
 
 *For more information on the game visit* **Wiki**
 
-Second part: Pokemon game <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQomLc61qIjwYvlfH3NwFWGE-sI5U6NmSPSXQ&usqp=CAU" width="25" height="25">
----------------
-
-
-
-
-
-
-
-
-
-*For more information on the game visit* **Wiki**
 
 <p align="center">
 <img src="" width="700" height="400">   
