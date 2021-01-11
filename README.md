@@ -1,7 +1,7 @@
 # Directed-Weighted-Graph-Python
 
 <p align="center">
-<img src="https://media1.giphy.com/media/xT0xezPWsmgkpiGfkY/giphy.gif" width="1000" height="400">
+<img src="https://media1.giphy.com/media/xT0xezPWsmgkpiGfkY/giphy.gif" width="400" height="400">
 </p>  
 
 
