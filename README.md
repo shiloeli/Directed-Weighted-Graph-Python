@@ -51,10 +51,13 @@ Main methods and a brief explanation:<br>
 **connected_components()** - Finds all the Strongly Connected Component(SCC) in the graph.<br>
 **plot_graph()** - Plots the graph.<br>
 
-**Point3D class:**<br>
-This implementation geo_location<br>
-that represents a geo location <x,y,z>.<br>
-In this class the number of functions that can be performed in a location.<br>
+**PlotGraph class:**<br>
+This class is responsible for transferring the graph data to a graphical representation with<br>
+the help of the matplotlib library<br>
+Main functions:<br>
+**have_pos()** - checks whether the graph vertices are positioned.<br>
+**random_pos()** - The method guerrilla random points for the position of the vertex.<br>
+**paint()** - This method draws the graph.<br>
 
 **Data Structure:**<br>
 HashMap-It is used because it allows you to get data based on key in O(1).<br>
@@ -62,71 +65,18 @@ ArrayList-Because it has the ability to create a list in the desired order.<br>
 PriorityQueue-Because it has the ability to adjust the position of the object by definition.<br>
 
 
+*For more information on the game visit* **Wiki**
+
 Second part: Pokemon game <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQomLc61qIjwYvlfH3NwFWGE-sI5U6NmSPSXQ&usqp=CAU" width="25" height="25">
 ---------------
-is made up of 8 classes<br>
 
-**Agent class:**<br>
-Class representing an agent in a graph for each agent Multiple fields:.<br>
-EPS, Count, _Seed, _Hand, _Pos, _Speed, _Sedge_Course, _Shoot_Course, _gg ,_Fruit_Course, _Sg_DT,.<br>
-This class advises a number of actions that can be performed on an agent such as:.<br>
-builds, get and set actions for the class fields,<br>
-Main functions:
-setNectNode- Defines the next node for the agent.<br>
-getNextNode- Returns the node to which the agent is intended<br>
-And more.
 
-**Arena class:**<br>
-This class represents the data of each stage of the game<br>
-Allows you to get and configure data for the game<br>
-The class is made up of the fields: EPS1, _gg, _agents, _pokemons, _info, timer, MIN, MAX.<br>
-In this class you can perform a number of operations on the game such as: get and set operations for the class variables,
-getAgent- Returns the agents that belong to the phase.
-json2Pokemons- Gets a string of Pokemon and returns a list containing them.
-updateEdge- Updates the locations of Pokemon to edges.<br>
-and more.
 
-**Ex2 class:**<br>
-In this class the main is defined through which the game can be run.
 
-**GameFrame class:**<br>
-This class represents a GUI class to present game on a graph.<br>
-which contains features of the game window and the creation of
-a panel for drawing components on the frame window.<br>
 
-**GamePanel class:**<br>
-The GamePanel class is used for drawing the components on the frame of the game<br>
-Contains: drawing information about the game, graph, Pokemon, agents, and refreshing<br>
-the components each time.<br>
-Class variables: _ ar, _w2f.<br>
 
-**LoginGameFrame class:**<br>
-This class defines the game login window using the following functions:<br>
-LoginGameFrame- A method that defines the graphical parts of the login window such as type, button text box and more.<br>
-windowCenter - places the login screen in the middle of the screen.<br>
 
-**MainGame class:**<br>
-The department where the game takes place,<br>
-Department fields: _win, _ar, scenario_num, id, dt.<br>
-The game is run using the following functions:<br>
-Main functions:
-moveAgents- A function in which the move is made to each agent and a route is assigned to the agent.<br>
-strategy2- victory strategy was built in the department: MainGame
-Which uses the shortestPath function - which returns a list of nodes of the shortest route (defined in the DWGraph_Algo class).
-This is how the shortest route to each Pokemon in the game to which the agent is sent is calculated.
-When a situation arises where an agent in a game is stuck at the edge we will make a low break and a high number of moves so that he can eat the Pokmon and advance to the next edge.
 
-**Pokemon class:**<br>
-This class defines pokemon<br>
-Class fields: _edge, _value, _type, _pos, min_dist, min_ro, id.<br>
-In this class you can do various actions on Pokemon such as: get and set actions for the class variables, builder, and more.
-
-><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQomLc61qIjwYvlfH3NwFWGE-sI5U6NmSPSXQ&usqp=CAU" width="25" height="25">  **Goal of the game:** Collect as many Pokemon as possible.<br>
->The more Pokemon you collect with the help of the agents, the higher the score, depending on the specific value of the Pokemon.
->In order to reach the maximum score, a victory strategy was built in the department: MainGame
->Which uses the shortestPath function - which returns a list of nodes of the shortest route (defined in the DWGraph_Algo class).
->This is how the shortest route to each Pokemon in the game to which the agent is sent is calculated.
->When a situation arises where an agent in a game is stuck at the edge we will make a low break and a high number of moves so that he can eat the Pokmon and advance to the next edge.
 
 *For more information on the game visit* **Wiki**
 
