@@ -4,11 +4,21 @@ from src.DiGraph import DiGraph
 
 
 class PlotGraph:
+    """This class is responsible for transferring the graph data to a graphical representation with
+     the help of the matplotlib library"""
 
-    def __init__(self, graph: DiGraph, max_v: tuple = (0, 0, 0), min_v: tuple = (0, 0, 0)):
+    def __init__(self, graph: DiGraph):
+        """
+        constructor
+        :param graph: graph
+        """
         self.graph = graph
 
     def have_pos(self) -> bool:
+        """
+        Checks if there is a vertex that does not have a pos
+        :return: true or false
+        """
         for k, v in self.graph.get_all_v().items():
             if (0, 0, 0) != v.getLocation():
                 return True
@@ -16,12 +26,18 @@ class PlotGraph:
         return False
 
     def random_pos(self) -> None:
+        """
+        Grid numbers in a given area for the position of points in the graph
+        """
         for i in range(0, self.graph.v_size()):
             x = random.randint(1, 3000000)
             y = random.randint(1, 3000000)
             self.graph.get_all_v()[i].setLocation((x, y, 0))
 
     def paint(self):
+        """
+         This method draws the graph.
+        """
         x_values = []
         y_values = []
         id_node = []
