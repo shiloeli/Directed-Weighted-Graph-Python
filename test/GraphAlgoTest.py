@@ -28,10 +28,13 @@ def test_graph_loaded(graph: str) -> None:
     g_algo.load_from_json(file)
     # print(g_algo.get_graph())
     g_algo.save_to_json(file + "_edited")
+    limit = 0
     for k in g_algo.get_graph().get_all_v():
-        for j in g_algo.get_graph().get_all_v():
-            path = g_algo.shortest_path(k, j)
-            # print(f"shortest_path between {k} and {j}: ", path)
+        limit += 1
+        if limit < 1000:
+            path = g_algo.shortest_path(0, k)
+        else:
+            return
 
     print("Graph " + graph + " done!")
 
@@ -90,6 +93,85 @@ class GraphAlgoTest(unittest.TestCase):
         expected = (1, [0, 3])
         actual = ga.shortest_path(0, 3)
         self.assertEqual(actual, expected)
+
+    def test_all_shortest_path(self):
+        """
+        Calculate a shortest path from each node to the other nodes
+        :return: None
+        """
+        # test_graph_loaded("A0")
+        # test_graph_loaded("A1")
+        # test_graph_loaded("A2")
+        # test_graph_loaded("A3")
+        # test_graph_loaded("A4")
+        # test_graph_loaded("A5")
+        # test_graph_loaded("T0.json")
+
+        # test_graph_loaded("G_10_80_0.json")
+        # test_graph_loaded("G_100_800_0.json")
+        test_graph_loaded("G_1000_8000_0.json")
+        # test_graph_loaded("G_10000_80000_0.json")
+        # test_graph_loaded("G_20000_160000_0.json")
+        # test_graph_loaded("G_30000_240000_0.json")
+        #
+        # test_graph_loaded("G_10_80_1.json")
+        # test_graph_loaded("G_100_800_1.json")
+        # test_graph_loaded("G_1000_8000_1.json")
+        # test_graph_loaded("G_10000_80000_1.json")
+        # test_graph_loaded("G_20000_160000_1.json")
+        # test_graph_loaded("G_30000_240000_1.json")
+
+    def test_connected_component_in_graph_loaded(self):
+        ga = GraphAlgo()
+        ga.load_from_json("../data/G_10_80_0.json")
+        component = ga.connected_component(0)
+        self.assertEqual(len(component), ga.get_graph().v_size())
+
+        ga.load_from_json("../data/G_100_800_0.json")
+        component = ga.connected_component(0)
+        self.assertEqual(len(component), ga.get_graph().v_size())
+
+        ga.load_from_json("../data/G_1000_8000_0.json")
+        component = ga.connected_component(0)
+        self.assertEqual(len(component), ga.get_graph().v_size())
+
+        ga.load_from_json("../data/G_10000_80000_0.json")
+        component = ga.connected_component(0)
+        self.assertEqual(9989, len(component))
+
+        ga.load_from_json("../data/G_20000_160000_0.json")
+        component = ga.connected_component(0)
+        self.assertEqual(19985, len(component))
+
+        ga.load_from_json("../data/G_30000_240000_0.json")
+        component = ga.connected_component(0)
+        self.assertEqual(29971, len(component))
+
+    def test_connected_components_in_graph_loaded(self):
+        ga = GraphAlgo()
+        ga.load_from_json("../data/G_10_80_0.json")
+        component = ga.connected_components()
+        self.assertEqual(1, len(component))
+
+        ga.load_from_json("../data/G_100_800_0.json")
+        component = ga.connected_components()
+        self.assertEqual(1, len(component))
+
+        ga.load_from_json("../data/G_1000_8000_0.json")
+        component = ga.connected_components()
+        self.assertEqual(1, len(component))
+
+        ga.load_from_json("../data/G_10000_80000_0.json")
+        component = ga.connected_components()
+        self.assertEqual(12, len(component))
+
+        ga.load_from_json("../data/G_20000_160000_0.json")
+        component = ga.connected_components()
+        self.assertEqual(16, len(component))
+        #
+        ga.load_from_json("../data/G_30000_240000_0.json")
+        component = ga.connected_components()
+        self.assertEqual(30, len(component))
 
     def test_connected_component(self):
         g = DiGraph()
@@ -231,47 +313,6 @@ class GraphAlgoTest(unittest.TestCase):
         # g.plot_graph()
         # self.assertTrue(g.load_from_json(fileG_30000_circle))
         # g.plot_graph()
-
-    def test_all_shortest_path(self):
-        """
-        Calculate a shortest path from each node to the other nodes
-        :return: None
-        """
-        test_graph_loaded("A0")
-        test_graph_loaded("A1")
-        test_graph_loaded("A2")
-        test_graph_loaded("A3")
-        test_graph_loaded("A4")
-        test_graph_loaded("A5")
-        test_graph_loaded("T0.json")
-
-        test_graph_loaded("G_10_80_0.json")
-        test_graph_loaded("G_100_800_0.json")
-        test_graph_loaded("G_1000_8000_0.json")
-        test_graph_loaded("G_10000_80000_0.json")
-        test_graph_loaded("G_20000_160000_0.json")
-        test_graph_loaded("G_30000_240000_0.json")
-
-        test_graph_loaded("G_10_80_1.json")
-        test_graph_loaded("G_100_800_1.json")
-        test_graph_loaded("G_1000_8000_1.json")
-        test_graph_loaded("G_10000_80000_1.json")
-        test_graph_loaded("G_20000_160000_1.json")
-        test_graph_loaded("G_30000_240000_1.json")
-
-    def test_connected_component_in_graph_loaded(self):
-        ga = GraphAlgo()
-        ga.load_from_json("../data/G_10_80_0.json")
-        component = ga.connected_component(0)
-        self.assertEqual(len(component), ga.get_graph().v_size())
-
-        ga.load_from_json("../data/G_100_800_0.json")
-        component = ga.connected_component(0)
-        self.assertEqual(len(component), ga.get_graph().v_size())
-
-        ga.load_from_json("../data/G_1000_8000_0.json")
-        component = ga.connected_component(0)
-        self.assertEqual(len(component), ga.get_graph().v_size())
 
     def test_plot_graph_of_100_vertices(self):
         g = graph_creator(100, 100)

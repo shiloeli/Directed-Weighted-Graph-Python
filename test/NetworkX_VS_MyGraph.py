@@ -151,37 +151,67 @@ class NetworkX_VS_MyGraph(TestCase):
         self.assertEqual(actual, expected)
 
     def calculate_shortest_path(self, g):
+        limit = 0
         for node, data in g.nodes(data=True):
-            for node1, data1 in g.nodes(data=True):
-                # print(nx.dijkstra_path(g, node, node1))
-                nx.dijkstra_path(g, node, node1)
+            limit += 1
+            if limit < 1000:
+                try:
+                    # for node1, data1 in g.nodes(data=True):
+                    # print(nx.dijkstra_path(g, node, node1))
+                    nx.dijkstra_path(g, 0, node)
+                except nx.NetworkXNoPath:
+                    pass
+            else:
+                return
 
-    def test_shortest_path_of_graphA0_A5(self):
-        g = load_json_in_networkX("../data/A0")
+    def test_shortest_path_of_graph(self):
+        g = load_json_in_networkX("../data/G_10_80_0.json")
         self.calculate_shortest_path(g)
-        print("A0 Done!")
+        print("G_10_80_0 Done!")
 
-        g = load_json_in_networkX("../data/A1")
+        g = load_json_in_networkX("../data/G_100_800_0.json")
         self.calculate_shortest_path(g)
-        print("A1 Done!")
+        print("G_100_800_0 Done!")
 
-        g = load_json_in_networkX("../data/A2")
+        g = load_json_in_networkX("../data/G_1000_8000_0.json")
         self.calculate_shortest_path(g)
-        print("A2 Done!")
+        print("G_1000_8000_0 Done!")
 
-        g = load_json_in_networkX("../data/A3")
+        g = load_json_in_networkX("../data/G_10000_80000_1.json")
         self.calculate_shortest_path(g)
-        print("A3 Done!")
+        print("G_10000_80000_1 Done!")
 
-        g = load_json_in_networkX("../data/A4")
+        g = load_json_in_networkX("../data/G_20000_160000_0.json")
         self.calculate_shortest_path(g)
-        print("A4 Done!")
+        print("G_20000_160000_0 Done!")
 
-        g = load_json_in_networkX("../data/A5")
+        g = load_json_in_networkX("../data/G_30000_240000_0.json")
         self.calculate_shortest_path(g)
-        print("A5 Done!")
+        print("G_30000_240000_0 Done!")
 
-
+        # g = load_json_in_networkX("../data/A0")
+        # self.calculate_shortest_path(g)
+        # print("A0 Done!")
+        #
+        # g = load_json_in_networkX("../data/A1")
+        # self.calculate_shortest_path(g)
+        # print("A1 Done!")
+        #
+        # g = load_json_in_networkX("../data/A2")
+        # self.calculate_shortest_path(g)
+        # print("A2 Done!")
+        #
+        # g = load_json_in_networkX("../data/A3")
+        # self.calculate_shortest_path(g)
+        # print("A3 Done!")
+        #
+        # g = load_json_in_networkX("../data/A4")
+        # self.calculate_shortest_path(g)
+        # print("A4 Done!")
+        #
+        # g = load_json_in_networkX("../data/A5")
+        # self.calculate_shortest_path(g)
+        # print("A5 Done!")
 
     def test_100_vertices(self):
         g = graph_creator(100, 100)
