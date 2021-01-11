@@ -180,6 +180,11 @@ class GraphAlgoTest(unittest.TestCase):
         file4 = "../data/A4"
         file5 = "../data/A5"
         fileT0 = "../data/T0.json"
+        fileG_10 = "../data/G_10_80_0.json"
+        fileG_100 = "../data/G_100_800_0.json"
+        fileG_1000 = "../data/G_1000_8000_0.json"
+        fileG_10000 = "../data/G_10000_80000_0.json"
+        fileG_20000 = "../data/G_20000_160000_0.json"
         fileG_30000 = "../data/G_30000_240000_0.json"
         # self.assertTrue(g.load_from_json(file0))
         # g.plot_graph()
@@ -195,8 +200,13 @@ class GraphAlgoTest(unittest.TestCase):
         # g.plot_graph()
         # self.assertTrue(g.load_from_json(fileT0))
         # g.plot_graph()
-        self.assertTrue(g.load_from_json(fileG_30000))
+        # self.assertTrue(g.load_from_json(fileG_10))
+        # g.plot_graph()
+        # self.assertTrue(g.load_from_json(fileG_100))
+        # g.plot_graph()
+        self.assertTrue(g.load_from_json(fileG_1000))
         g.plot_graph()
+
 
     def test_all_shortest_path(self):
         test_graph_loaded("A0")

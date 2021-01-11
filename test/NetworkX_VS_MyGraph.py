@@ -14,8 +14,6 @@ def graph_creator(v, e) -> nx.DiGraph:
     for n in range(v):
         g.add_node(n)
 
-
-
     for i in range(0, v):
         for j in range(1, v):
             if g.number_of_edges() < e:
@@ -158,7 +156,6 @@ class NetworkX_VS_MyGraph(TestCase):
                 # print(nx.dijkstra_path(g, node, node1))
                 nx.dijkstra_path(g, node, node1)
 
-
     def test_shortest_path_of_graphA0_A5(self):
         g = load_json_in_networkX("../data/A0")
         self.calculate_shortest_path(g)
@@ -185,6 +182,7 @@ class NetworkX_VS_MyGraph(TestCase):
         print("A5 Done!")
 
 
+
     def test_100_vertices(self):
         g = graph_creator(100, 100)
         self.assertEqual(g.number_of_nodes(), 100)
@@ -196,4 +194,3 @@ class NetworkX_VS_MyGraph(TestCase):
     def test_1000000_vertices(self):
         g = graph_creator(1000000, 1000000)
         self.assertEqual(g.number_of_nodes(), 1000000)
-
