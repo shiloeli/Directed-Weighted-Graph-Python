@@ -2,7 +2,7 @@
 
 <h1></h1>
 <p align="center">
-<img src="https://www.fitzner.nl/simulator/files/ERdef.gifl" width="900" height="400">
+<img src="https://www.fitzner.nl/simulator/files/ERdef.gifl" width="900" height="900">
 </p>    
 
 <h2>Description</h2>
