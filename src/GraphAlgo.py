@@ -10,14 +10,36 @@ import math
 
 
 class GraphAlgo(GraphAlgoInterface):
+    """This class represents a Directed (positive) Weighted Graph Theory Algorithms including:
+    0. __init__()
+    1. get_graph(self)
+    2. load_from_json(self, file_name: str)
+    3. save_to_json(self, file_name: str)
+    4. shortest_path(self, id1: int, id2: int)
+    5. connected_component(self, id1: int)
+    6. connected_components(self)
+    7. plot_graph(self)
+    graph-Is an abstract representation of a set of nodes and edge,
+    each edge has a weight,
+    it is possible to have a route from node to another node."""
 
     def __init__(self, graph: GraphInterface = None):
+        """Graph builder"""
         self.__graph = graph
 
     def get_graph(self) -> GraphInterface:
+        """
+        :return: the directed graph on which the algorithm works on.
+        """
+
         return self.__graph
 
     def load_from_json(self, file_name: str) -> bool:
+        """This method load a graph to this graph.
+        if the file was successfully loaded - the underlying graph
+        of this class will be changed (to the loaded one), in case the
+        graph was not loaded the original graph should remain "as is"."""
+
         self.__graph = DiGraph()
         try:
             with open(file_name, "r") as file:
@@ -40,6 +62,8 @@ class GraphAlgo(GraphAlgoInterface):
             return False
 
     def save_to_json(self, file_name: str) -> bool:
+        """Saves this weighted (directed) graph to the given
+        file name - in JSON format"""
         try:
             with open(file_name, "w") as file:
                 file.write(str(self.__graph))
@@ -48,6 +72,15 @@ class GraphAlgo(GraphAlgoInterface):
             return False
 
     def shortest_path(self, id1: int, id2: int) -> (float, list):
+        """Returns the shortest path from node id1 to node id2 using Dijkstra's Algorithm - as an ordered List of nodes:
+        src--> n1-->n2-->...dest.
+        By pass the shortest path from the end to the beginning.
+        if no such path exists return math.inf, [ ](Maximum route length and empty list).
+        The method adds the destination vertex (id2) to the list and accesses the parent vertex by the info value of the
+        vertex until it arrives node that its info value is -1 which we set as the end of the trajectory.
+        We will then create a list that will contain the weight of the destination node (id2) and the list of vertices
+        of the shortest route created"""
+
         if id1 not in self.__graph.vertices or id2 not in self.__graph.vertices:
             pathInf = (math.inf, [])
             return pathInf
@@ -77,6 +110,25 @@ class GraphAlgo(GraphAlgoInterface):
         return listSp
 
     def connected_component(self, id1: int) -> list:
+        """This method gets a vertex Finds the Strongly Connected Component (SCC) that node id1 is a part of.
+        If the node does not exist in the graph another blank list will be returned
+        A list will be returned that will contain the nodes keys that are part of the bindings component.
+        This method creates 3 lists: neiOut- contains the vertices that can be reached from the source node and
+        neiIn- which contains the vertices in the graph that can be reached from the source node.
+        Another allNode list in which all vertices are transferred and sent to the Valentine list from the previous 2.
+        We will first insert the source vertex into allNode and neiOut
+        We will reset the tag values of all the vertices of the graph-1 and for the source vertex
+        we have a value of tag 0 then we will add all the vertices that can be reached from the source node to
+        neiOut by going over the neighbors of each vertex entering allNode and defining each vertex entering
+        a tag 0 so we do not repeat the operation From one time. We will perform these operations as long as
+        the allNode list is not empty
+        We will perform the same operation in the opposite direction, we will add to allNode all the codecs that
+        can be reached from the source node by going over the neighbors' neighbors and thus we will fill
+        in the neiIn list.
+        Once these 2 lists are complete we will create a list that will contain the vertices that belong
+        to neiIn and also neiOut which will return to us the Strongly Connected Component.
+        """
+
         if self.__graph.vertices.get(id1) is None:
             list_none = []
             return list_none
@@ -124,6 +176,16 @@ class GraphAlgo(GraphAlgoInterface):
         return allNode
 
     def connected_components(self) -> List[list]:
+        """  Finds all the Strongly Connected Component(SCC) in the graph.
+        If there are no binding elements in the graph, [[]]] will return a list of empty lists.
+        In the method we put all the keys in the graph in the allV list.
+        We then sent a random vertex to the connected_component method ()
+        The list of the linking component we received will be added to the allComponents list
+        And the vertices component bindings we got from the method we will remove from the allV list.
+        We will do this as long as our list of vertices is not empty.
+        And finally we return the allComponents list that contains all the existing binding elements in the graph.
+        """
+
         if self.__graph.v_size() < 1:
             return [[]]
 
@@ -143,6 +205,13 @@ class GraphAlgo(GraphAlgoInterface):
         return allComponents
 
     def plot_graph(self) -> None:
+        """Plots the graph.
+        If the nodes have a position, the nodes will be placed there.
+        Otherwise, they will be placed in a random but elegant manner.
+        The method draws the graph using the PlotGraph class
+        (An explanation of the methods can be found in the imitation)
+        Which has methods that create the graph using the "matplotlib" directory
+        """
         plot = PlotGraph(self.__graph)
         plot.have_pos()
         if plot.have_pos() is False:
@@ -150,6 +219,17 @@ class GraphAlgo(GraphAlgoInterface):
         plot.paint()
 
     def Dijkstra(self, node_id: int):
+        """Algorithm for finding the shortest route with the help of a priority queue
+        We will first go through all the nodes in the graph and define their math.inf weight
+        Value info -1
+        We will insert the given vertex into the queue and as long as the queue is not empty
+         we will perform the following steps:
+        We will delete the vertex at the top of the queue and pass over all the neighbors of the
+        same vertex and define a weight for them using the weight of the parent node and the connecting
+        side between them so that we pass over all the vertices in the graph
+        (if it is a different link only to some of them)
+        And we will mark their weight a method which will help us find the shortest route."""
+        
         queue = PriorityQueue()
         for node in self.__graph.vertices.values():
             node.setWeight(math.inf)
