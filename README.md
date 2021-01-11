@@ -6,10 +6,10 @@
 
 <h2>Description</h2>
 
->This project deals with the construction of directed weighted graph starting from the creation of the nodes in the graph,<br>
->continues with the creation of the graph itself (such as connecting the nodes in the graph and more) and basic algorithms related to the graph <br>
->(paths in the parent link graph and more).<br>
->A graph is made up of three interfaces main arranged according to the hierarchy from the creation of a node to the execution of an algorithm on the graph.<br>
+This project deals with the construction of directed weighted graph starting from the creation of the nodes in the graph,<br>
+continues with the creation of the graph itself (such as connecting the nodes in the graph and more) and basic algorithms related to the graph <br>
+(paths in the parent link graph and more).<br>
+A graph is made up of three interfaces main arranged according to the hierarchy from the creation of a node to the execution of an algorithm on the graph.<br>
 
 
 
@@ -64,7 +64,7 @@ Main functions:<br>
 *List*-Convenient to store values in desired order (and we were required to use it)r.<br>
 *PriorityQueue*-Because it has the ability to adjust the position of the object by definition.<br>
 
-**Algorithms:**<br>
+>**Algorithms:**<br>
 * Dijkstra - Solves the problem of finding the easiest route from a point on the graph to a destination in a weighted graph. Because using this algorithm you can find, at the same time, the fast paths to all the points in the graph.<br>
 The algorithm works on a given graph, intentional or unintentional, with non-negative weights on the arcs. The weights in the graph symbolize distance. The shortest route<br> between two points means the route with the lowest amount of weights between the two points.<br>
 For more explanation: https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm <br>
