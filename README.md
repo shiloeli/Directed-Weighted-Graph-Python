@@ -2,7 +2,7 @@
 
 <h1></h1>
 <p align="center">
-<img src="https://50000feet-com-files.s3.us-east-2.amazonaws.com/s3fs-public/50k_ai_03.gif" width="900" height="400">
+<img src="https://50000feet-com-files.s3.us-east-2.amazonaws.com/s3fs-public/50k_ai_03.gif" width="1000" height="400">
 </p>    
 
 <h2>Description</h2>
