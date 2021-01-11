@@ -1,7 +1,7 @@
 # Directed-Weighted-Graph-Python
 
 <p align="center">
-<img src="https://thumbs.gfycat.com/IncomparableSmugCollie-small.gif" width="900" height="300">
+<img src="https://thumbs.gfycat.com/IncomparableSmugCollie-small.gif" width="1000" height="300">
 </p>  
 
 <h2>Description</h2>
