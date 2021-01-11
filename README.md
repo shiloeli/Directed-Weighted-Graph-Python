@@ -77,14 +77,14 @@ For more explanation: https://en.wikipedia.org/wiki/Depth-first_search <br>
 
 
 <p align="center">
-<img src="http://www.up2me.co.il/imgs/35483045.jpg" width="600" height="400">   
+<img src="http://www.up2me.co.il/imgs/35483045.jpg" width="550" height="400">   
 </p>
 
 
 
 
 <p align="center">
-**Workspace**
+Workspace:
 <img src="https://lh3.googleusercontent.com/proxy/dRS-RkCj2m7_0TO8-N_WR64vMglAr1uw6PFrS_aOHGLGVxSgGyBElaeSr532sg1Ch7R6EOI4RMU51XXz7pZYHlw9UJNQio5TRZglPKdF2stf1RrgY5BX8m2mI8GqmqNB" width="50" height="50">  
  </p>   
  
