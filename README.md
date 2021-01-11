@@ -20,11 +20,11 @@ is made up of 4 classes<br>
 **NodeData class:**
 this class represents the set of operations applicable on a node (vertex) in a (directional) weighted graph.<br>
 The node in the graph consists of five things:<br>
-*key - Unique ID of the node in graph<br>
-*info- Contains some characteristic of the node such as color and more .. In this project it stores the parent node.<br>
-*tag-Temporal data which can be used be algorithms.<br>
-*location- location of this node.<br>
-*weight- Weight of the node.<br>
+* key - Unique ID of the node in graph<br>
+* info- Contains some characteristic of the node such as color and more .. In this project it stores the parent node.<br>
+* tag-Temporal data which can be used be algorithms.<br>
+* location- location of this node.<br>
+* weight- Weight of the node.<br>
     
 **DWGraph_DS class:**<br>
 This implementation directed_weighted_graph<br>
