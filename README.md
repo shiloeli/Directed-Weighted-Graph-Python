@@ -17,7 +17,7 @@ class:
 ---------------
 
 is made up of 4 classes<br>
-**NodeData class:**
+**NodeData class:**<br>
 this class represents the set of operations applicable on a node (vertex) in a (directional) weighted graph.<br>
 The node in the graph consists of five things:<br>
 * key - Unique ID of the node in graph<br>
