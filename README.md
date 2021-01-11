@@ -2,7 +2,7 @@
 
 <h1></h1>
 <p align="center">
-<img src="https://images.squarespace-cdn.com/content/v1/52b30f7ae4b067ba989438d4/1447997674954-HCL7I7GI38DQCSAINW0K/ke17ZwdGBToddI8pDm48kHfLWPMkPwt94o6WBYjlQt9Zw-zPPgdn4jUwVcJE1ZvWEtT5uBSRWt4vQZAgTJucoTqqXjS3CfNDSuuf31e0tVGs-8qKJe5UhMWWatjMYlOSiHFHOQkXzAMdpCyg9UdnZ6QvevUbj177dmcMs1F0H-0/quanta_1.gif" width="900" height="900">
+<img src="https://images.squarespace-cdn.com/content/v1/52b30f7ae4b067ba989438d4/1447997674954-HCL7I7GI38DQCSAINW0K/ke17ZwdGBToddI8pDm48kHfLWPMkPwt94o6WBYjlQt9Zw-zPPgdn4jUwVcJE1ZvWEtT5uBSRWt4vQZAgTJucoTqqXjS3CfNDSuuf31e0tVGs-8qKJe5UhMWWatjMYlOSiHFHOQkXzAMdpCyg9UdnZ6QvevUbj177dmcMs1F0H-0/quanta_1.gif" width="400" height="400">
 </p>    
 
 <h2>Description</h2>
