@@ -1,4 +1,4 @@
-# Directed-Weighted-Graph-Python
+**Directed-Weighted-Graph-Python**
 
 <p align="center">
 <img src="https://thumbs.gfycat.com/IncomparableSmugCollie-small.gif" width="1100" height="200">
