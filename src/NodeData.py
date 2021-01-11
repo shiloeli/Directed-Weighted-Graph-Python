@@ -9,7 +9,14 @@ class NodeData:
 
     def __init__(self, key: int = 0, info: int = -1, tag: int = 0, location: tuple = (0, 0, 0),
                  weight: float = 0):
-        """Constructor of a node in graph"""
+        """
+        Constructor of a node in graph
+        :param key:
+        :param info:
+        :param tag:
+        :param location:
+        :param weight:
+        """
         self.__key = key
         self.__info = info
         self.__tag = tag
@@ -17,47 +24,81 @@ class NodeData:
         self.__weight = weight
 
     def setKey(self, k: int):
-        """Defines a unique ID for node"""
+        """
+        Defines a unique ID for node
+        :param k:
+        """
         self.__key = k
 
     def getKey(self) -> int:
-        """Return a unique ID of node"""
+        """
+        Return a unique ID of node
+        :return: ID of node
+        """
         return self.__key
 
     def setInfo(self, i: int):
-        """Defines an attribute for node"""
+        """
+        Defines an attribute for node
+        :param i:
+        """
         self.__info = i
 
     def getInfo(self) -> int:
-        """Return an attribute of node"""
+        """
+        Return an attribute of node
+        :return:  attribute of node
+        """
         return self.__info
 
     def setTag(self, t: int):
-        """Defines temporary data for node"""
+        """
+        Defines temporary data for node
+        :param t:
+        """
         self.__tag = t
 
     def getTag(self) -> int:
-        """Return temporary data of node"""
+        """
+        Return temporary data of node
+        :return: temporary data of node
+        """
         return self.__tag
 
     def setLocation(self, t: tuple = (0, 0, 0)):
-        """Defines the location of a node"""
+        """
+        Defines the location of a node
+        :param t:
+        :return: location of a node
+        """
         self.__location = t
 
     def getLocation(self) -> tuple:
-        """Return the location of a node"""
+        """
+        Return the location of a node
+        :return: location of a node
+        """
         return self.__location
 
     def setWeight(self, w: float):
-        """Defines weight for node"""
+        """
+        Defines weight for node
+        :param w:
+        """
         self.__weight = w
 
     def getWeight(self) -> float:
-        """Return weight for node"""
+        """
+        Return weight for node
+        :return:weight for node
+        """
         return self.__weight
 
     def __repr__(self):
-        """Returns the node data in the graph"""
+        """
+        Returns the node data in the graph
+        :return: ode data in the graph
+        """
         if self.__location is None:
             self.__location = (0, 0, 0)
         return "{" + f"\"pos\":\"{self.__location[0]},{self.__location[1]},{self.__location[2]}\",\"id\":{self.__key}" + "}"

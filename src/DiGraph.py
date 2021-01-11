@@ -12,7 +12,9 @@ class DiGraph(GraphInterface):
     edgeSize- Contains the number of edges in the graph"""
 
     def __init__(self):
-        """A constructor that sets default values for a graph."""
+        """
+        A constructor that sets default values for a graph.
+        """
 
         self.vertices: {int, NodeData} = dict()
         self.neighborsOut: {int, {int, float}} = dict()
@@ -23,7 +25,7 @@ class DiGraph(GraphInterface):
     def v_size(self) -> int:
         """
         Returns the number of vertices in this graph
-        @return: The number of vertices in this graph
+        :return: number of vertices in this graph
         """
 
         return len(self.vertices)
@@ -37,21 +39,31 @@ class DiGraph(GraphInterface):
         return self.__edgeSize
 
     def get_all_v(self) -> dict:
-        """return a dictionary of all the nodes in the Graph, each node is represented using a pair
-        (node_id, node_data)
         """
+       return a dictionary of all the nodes in the Graph, each node is represented using a pair
+        (node_id, node_data)
+       :return: dictionary of all the nodes in the Graph
+       """
 
         return self.vertices
 
     def all_in_edges_of_node(self, id1: int) -> dict:
-        """Returns a dictionary that represents all vertices and the weight
-         of the side that has a side to a given vertex"""
+        """
+        Returns a dictionary that represents all vertices and the weight
+         of the side that has a side to a given vertex
+        :param id1:
+        :return: dictionary that represents all vertices and the weight
+        """
 
         return self.neighborsIn.get(id1)
 
     def all_out_edges_of_node(self, id1: int) -> dict:
-        """Returns a dictionary that represents all vertices and the weight
-         of the side that has a side from a given vertex"""
+        """
+        Returns a dictionary that represents all vertices and the weight
+         of the side that has a side from a given vertex
+        :param id1:
+        :return: dictionary that represents all vertices and the weight
+        """
 
         return self.neighborsOut.get(id1)
 
@@ -60,13 +72,19 @@ class DiGraph(GraphInterface):
         Returns the current version of this graph,
         on every change in the graph state - the MC should be increased
         @return: The current version of this graph.
+        :return: current version of this graph
         """
 
         return self.__MC
 
     def getEdge(self, src: int, dest: int):
-        """Returns the edge weight that exists in the graph by the source
-         and destination value of the edge"""
+        """
+        Returns the edge weight that exists in the graph by the source
+         and destination value of the edge
+        :param src:
+        :param dest:
+        :return: dge weight
+        """
 
         if self.neighborsOut.get(src) is None:
             return None
@@ -75,11 +93,11 @@ class DiGraph(GraphInterface):
     def add_edge(self, id1: int, id2: int, weight: float) -> bool:
         """
         Adds an edge to the graph.
-        @param id1: The start node of the edge
-        @param id2: The end node of the edge
-        @param weight: The weight of the edge
-        @return: True if the edge was added successfully, False o.w.
         Note: If the edge already exists or one of the nodes dose not exists the functions will do nothing
+        :param id1:  The start node of the edge
+        :param id2:  The end node of the edge
+        :param weight: The weight of the edge
+        :return: True if the edge was added successfully, False o.w.
         """
 
         if weight <= 0:
@@ -104,11 +122,11 @@ class DiGraph(GraphInterface):
 
     def add_node(self, node_id: int, pos: tuple = None) -> bool:
         """
-        Adds a node to the graph.
-        @param node_id: The node ID
-        @param pos: The position of the node
-        @return: True if the node was added successfully, False o.w.
+          Adds a node to the graph.
         Note: if the node id already exists the node will not be added
+        :param node_id:  The node ID
+        :param pos:  The position of the node
+        :return: True if the node was added successfully, False o.w.
         """
 
         if self.vertices.get(node_id) is not None:
@@ -120,7 +138,11 @@ class DiGraph(GraphInterface):
         return True
 
     def getNode(self, node_id: int) -> NodeData:
-        """Returns the node by a given key"""
+        """
+        Returns the node by a given key
+        :param node_id:
+        :return: node
+        """
 
         if self.vertices.get(node_id) is not None:
             return self.vertices.get(node_id)
@@ -129,9 +151,9 @@ class DiGraph(GraphInterface):
     def remove_node(self, node_id: int) -> bool:
         """
         Removes a node from the graph.
-        @param node_id: The node ID
-        @return: True if the node was removed successfully, False o.w.
         Note: if the node id does not exists the function will do nothing
+        :param node_id:  The node ID
+        :return:  True if the node was removed successfully, False o.w.
         """
 
         if node_id in self.vertices:
@@ -149,10 +171,10 @@ class DiGraph(GraphInterface):
     def remove_edge(self, node_id1: int, node_id2: int) -> bool:
         """
         Removes an edge from the graph.
-        @param node_id1: The start node of the edge
-        @param node_id2: The end node of the edge
-        @return: True if the edge was removed successfully, False o.w.
         Note: If such an edge does not exists the function will do nothing
+        :param node_id1: The start node of the edge
+        :param node_id2: The end node of the edge
+        :return: True if the edge was removed successfully, False o.w.
         """
 
         if node_id1 in self.vertices and node_id2 in self.vertices:
@@ -167,7 +189,9 @@ class DiGraph(GraphInterface):
         return False
 
     def __repr__(self):
-        """Returns all the values that make up a graph"""
+        """
+        :return: Returns all the values that make up a graph
+        """
 
         str_graph = "{\"Edges\":["
         for k in self.neighborsOut.keys():
@@ -189,9 +213,13 @@ class DiGraph(GraphInterface):
         return str_graph
 
     def __eq__(self, other):
-        """A method that compares an existing graph with a graph obtained
+        """
+        A method that compares an existing graph with a graph obtained
          from the NetworkX_VS_MyGraph class to check if the resulting graphs are exactly the same
-         by going over all the vertices and sides of the graph"""
+         by going over all the vertices and sides of the graph
+        :param other: graph obtained from the NetworkX_VS_MyGraph
+        :return: true or false
+        """
 
         # Different size
         if self.v_size() != other.number_of_nodes():
