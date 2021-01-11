@@ -16,7 +16,6 @@
 class:
 ---------------
 
-is made up of 4 classes<br>
 **NodeData class:**<br>
 this class represents the set of operations applicable on a node (vertex) in a (directional) weighted graph.<br>
 The node in the graph consists of five things:<br>
@@ -26,13 +25,16 @@ The node in the graph consists of five things:<br>
 * location- location of this node.<br>
 * weight- Weight of the node.<br>
     
-**DWGraph_DS class:**<br>
-This implementation directed_weighted_graph<br>
-A graph is made up of a <br>
-Vertices, Neighbors, countMC and edgeSize.<br>
-In this class there are several functions that can be done in the graph such as:<br>
- constructor, add node, delete node and edge, make a connection between 2 nodes, get a collection of all the node and neighbors and more.<br>
-And operations that can be performed in edge: constructor and get and set operations to edge fields that are src, des, weight, info, tag.<br>
+**DiGraph class:**<br>
+This class represent directed weighted graph<br>
+That possible different actions on the graph, node and edge<br>
+Graph is represented by:<br>
+* Vertices - contains all the nodes in the graph using dictionary.<br>
+* neighborsOut - Represents the edges protruding from a node.<br>
+* neighborsIn - Represents the edges entering the node.<br>
+* MC- number of changes made to the graph.<br>
+* edgeSize-number of edges in the graph.<br>
+Main functions - add_edge(), add_node(),remove_node(), remove_edge().<br> 
 
 **Graph_Algo class:**<br>
 This implementation dw_graph_algorithms<br>
