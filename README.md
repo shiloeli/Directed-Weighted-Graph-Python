@@ -60,9 +60,9 @@ Main functions:<br>
 **paint()** - This method draws the graph.<br>
 
 **Data Structure:**<br>
-directory-It Because by key you can get a number of values that depend on it.<br>
-List-Convenient to store values in desired order (and we were required to use it)r.<br>
-PriorityQueue-Because it has the ability to adjust the position of the object by definition.<br>
+*directory*-It Because by key you can get a number of values that depend on it.<br>
+*List*-Convenient to store values in desired order (and we were required to use it)r.<br>
+*PriorityQueue*-Because it has the ability to adjust the position of the object by definition.<br>
 
 **Algorithms:**<br>
 * Dijkstra - Solves the problem of finding the easiest route from a point on the graph to a destination in a weighted graph. Because using this algorithm you can find, at the same time, the fast paths to all the points in the graph.<br>
