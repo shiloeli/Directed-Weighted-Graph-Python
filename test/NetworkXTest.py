@@ -185,11 +185,19 @@ class NetworkX_VS_MyGraph(TestCase):
         self.assertEqual(actual, expected)
 
     def calculate_shortest_path(self, g):
+<<<<<<< HEAD:test/NetworkX_VS_MyGraph.py
+        # limit = 0
+        nx.dijkstra_path(g, 0, 1)
+        # for node, data in g.nodes(data=True):
+        #     limit += 1
+        #     if limit < 1000:
+=======
         nx.dijkstra_path(g, 0, 1)
         # limit = 0
         # for node, data in g.nodes(data=True):
         #     limit += 1
         #     if limit < 100:
+>>>>>>> 90094fa885cb9ad2402cde7382fa45c24f97023c:test/NetworkXTest.py
         #         try:
         #             # for node1, data1 in g.nodes(data=True):
         #             # print(nx.dijkstra_path(g, node, node1))

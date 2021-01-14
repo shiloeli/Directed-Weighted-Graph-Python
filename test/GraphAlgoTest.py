@@ -12,7 +12,6 @@ def graph_creator(v, e) -> DiGraph:
 
     for i in range(0, v):
         for j in range(1, v):
-            # if (g.edgeSize() < e_size) {
             if g.e_size() < e:
                 g.add_edge(i, j, 10)
 
@@ -26,7 +25,15 @@ def test_graph_loaded(graph: str) -> None:
     g_algo = GraphAlgo()
     file = "../data/" + graph
     g_algo.load_from_json(file)
+    g_algo.save_to_json(file + "_edited")
+    limit = 0
+    # for k in g_algo.get_graph().get_all_v():
+    #     limit += 1
+    #     if limit < 2:
     path = g_algo.shortest_path(0, 1)
+    # print(limit)
+    # else:
+    #     return
 
     # # print(g_algo.get_graph())
     # g_algo.save_to_json(file + "_edited")
