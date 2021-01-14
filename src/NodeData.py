@@ -1,5 +1,5 @@
 class NodeData:
-    """this class node_data represents the set of operations applicable on a node (vertex) in a (directional) weighted graph.
+    """this class represents the set of operations applicable on a node (vertex) in a (directional) weighted graph.
     The node in the graph consists of five things:
     key - Unique ID of the node in graph
     info- Contains some characteristic of the node such as color and more .. In this project it stores the parent node.

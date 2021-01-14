@@ -151,18 +151,19 @@ class NetworkX_VS_MyGraph(TestCase):
         self.assertEqual(actual, expected)
 
     def calculate_shortest_path(self, g):
-        limit = 0
-        for node, data in g.nodes(data=True):
-            limit += 1
-            if limit < 1000:
-                try:
-                    # for node1, data1 in g.nodes(data=True):
-                    # print(nx.dijkstra_path(g, node, node1))
-                    nx.dijkstra_path(g, 0, node)
-                except nx.NetworkXNoPath:
-                    pass
-            else:
-                return
+        # limit = 0
+        nx.dijkstra_path(g, 0, 1)
+        # for node, data in g.nodes(data=True):
+        #     limit += 1
+        #     if limit < 1000:
+        #         try:
+        #             # for node1, data1 in g.nodes(data=True):
+        #             # print(nx.dijkstra_path(g, node, node1))
+        #             nx.dijkstra_path(g, 0, node)
+        #         except nx.NetworkXNoPath:
+        #             pass
+        #     else:
+        #         return
 
     def test_shortest_path_of_graph(self):
         g = load_json_in_networkX("../data/G_10_80_0.json")
