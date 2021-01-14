@@ -97,10 +97,6 @@ class GraphAlgoTest(unittest.TestCase):
         self.assertEqual(actual, expected)
 
     def test_all_shortest_path(self):
-        """
-        Calculate a shortest path from each node to the other nodes
-        :return: None
-        """
         test_graph_loaded("A0")
         test_graph_loaded("A1")
         test_graph_loaded("A2")
@@ -115,13 +111,13 @@ class GraphAlgoTest(unittest.TestCase):
         test_graph_loaded("G_10000_80000_0.json")
         test_graph_loaded("G_20000_160000_0.json")
         test_graph_loaded("G_30000_240000_0.json")
-
-        test_graph_loaded("G_10_80_1.json")
-        test_graph_loaded("G_100_800_1.json")
-        test_graph_loaded("G_1000_8000_1.json")
-        test_graph_loaded("G_10000_80000_1.json")
-        test_graph_loaded("G_20000_160000_1.json")
-        test_graph_loaded("G_30000_240000_1.json")
+        #
+        # test_graph_loaded("G_10_80_1.json")
+        # test_graph_loaded("G_100_800_1.json")
+        # test_graph_loaded("G_1000_8000_1.json")
+        # test_graph_loaded("G_10000_80000_1.json")
+        # test_graph_loaded("G_20000_160000_1.json")
+        # test_graph_loaded("G_30000_240000_1.json")
 
     def test_connected_component_in_graph_loaded(self):
         ga = GraphAlgo()
@@ -218,8 +214,6 @@ class GraphAlgoTest(unittest.TestCase):
         actual = ga.connected_component(2)
         self.assertEqual(expected, actual)
 
-        # NEED ADD FOR GRAPH A0-A5
-
     def test_connected_components(self):
         g = DiGraph()
         g.add_node(1)
@@ -253,8 +247,6 @@ class GraphAlgoTest(unittest.TestCase):
         actual = ga.connected_components()
         self.assertEqual(expected, actual)
 
-        # NEED ADD FOR GRAPH A0-A5
-
     def test_plot_graph(self):
         g = GraphAlgo()
         file0 = "../data/A0"
@@ -266,18 +258,18 @@ class GraphAlgoTest(unittest.TestCase):
         fileT0 = "../data/T0.json"
 
         fileG_10 = "../data/G_10_80_0.json"
-        fileG_100 = "../data/G_100_800_0.json"
-        fileG_1000 = "../data/G_1000_8000_0.json"
-        fileG_10000 = "../data/G_10000_80000_0.json"
-        fileG_20000 = "../data/G_20000_160000_0.json"
-        fileG_30000 = "../data/G_30000_240000_0.json"
+        # fileG_100 = "../data/G_100_800_0.json"
+        # fileG_1000 = "../data/G_1000_8000_0.json"
+        # fileG_10000 = "../data/G_10000_80000_0.json"
+        # fileG_20000 = "../data/G_20000_160000_0.json"
+        # fileG_30000 = "../data/G_30000_240000_0.json"
 
         fileG_10_circle = "../data/G_10_80_1.json"
-        fileG_100_circle = "../data/G_100_800_1.json"
-        fileG_1000_circle = "../data/G_1000_8000_1.json"
-        fileG_10000_circle = "../data/G_10000_80000_1.json"
-        fileG_20000_circle = "../data/G_20000_160000_1.json"
-        fileG_30000_circle = "../data/G_30000_240000_1.json"
+        # fileG_100_circle = "../data/G_100_800_1.json"
+        # fileG_1000_circle = "../data/G_1000_8000_1.json"
+        # fileG_10000_circle = "../data/G_10000_80000_1.json"
+        # fileG_20000_circle = "../data/G_20000_160000_1.json"
+        # fileG_30000_circle = "../data/G_30000_240000_1.json"
 
         self.assertTrue(g.load_from_json(file0))
         g.plot_graph()
@@ -303,8 +295,8 @@ class GraphAlgoTest(unittest.TestCase):
         # self.assertTrue(g.load_from_json(fileG_10000))
         # g.plot_graph()
 
-        # self.assertTrue(g.load_from_json(fileG_10_circle))
-        # g.plot_graph()
+        self.assertTrue(g.load_from_json(fileG_10_circle))
+        g.plot_graph()
         # self.assertTrue(g.load_from_json(fileG_100_circle))
         # g.plot_graph()
         # self.assertTrue(g.load_from_json(fileG_1000_circle))
