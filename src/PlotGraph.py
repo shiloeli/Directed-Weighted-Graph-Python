@@ -30,8 +30,8 @@ class PlotGraph:
         Grid numbers in a given area for the position of points in the graph
         """
         for i in range(0, self.graph.v_size()):
-            x = random.randint(1, 3000000)
-            y = random.randint(1, 3000000)
+            x = random.randint(1, 30)
+            y = random.randint(1, 30)
             self.graph.get_all_v()[i].setLocation((x, y, 0))
 
     def paint(self):
